@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Plataforma de Preparação IFTM - Marcelo Gonçalves Cardoso</title>
+    <style>
+        /* =======================================================
+                1. ESTILIZAÇÃO GERAL (CSS EMBUTIDO) - NOVO ESQUEMA DE CORES (VERDE/TEAL)
+                ======================================================= */
+        :root {
+            --cor-principal: #008080; /* Verde-Água / Teal IFTM */
+            --cor-acento: #00bfff; /* Azul Céu (Acento vibrante) */
+            --cor-secundaria: #6c757d;
+            --cor-fundo: #f0fdfa; /* Fundo mais claro e suave */
+            --cor-texto: #343a40;
+            --cor-sucesso: #28a745;
+            --cor-erro: #dc3545;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+        
+        /* Estilização padrão para o conteúdo dentro das páginas */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Classes de exibição */
+        .page {
+            display: none;
+            padding-top: 65px; /* Ajuste para o menu fixo maior */
+            min-height: 100vh;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* =======================================================
+                2. SPLASH SCREEN
+                ======================================================= */
+        #splash-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(135deg, var(--cor-principal) 0%, #00b5ad 100%); /* Gradiente VT */
+            color: white;
+            padding: 20px;
+        }
+
+        #splash-screen h1 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #btn-comecar {
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px; /* Mais arredondado */
+            cursor: pointer;
+            background-color: var(--cor-acento);
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        #btn-comecar:hover {
+            background-color: #0099cc;
+            transform: scale(1.05);
+        }
+
+        /* =======================================================
+                3. HEADER E NAVEGAÇÃO (MODIFICADO PARA CENTRALIZAR E AUMENTAR)
+                ======================================================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        /* Centralização do Menu: NOVO CSS */
+        nav {
+            display: flex;
+            justify-content: center; /* Centraliza os itens do menu no meio da tela */
+            padding: 5px 0; /* Ajuste de padding vertical */
+        }
+        
+        /* Aumento do Tamanho dos Itens do Menu: NOVO CSS */
+        nav button {
+            color: var(--cor-principal);
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 15px 30px; /* Aumenta o tamanho do botão */
+            font-size: 1.15rem; /* Aumenta o tamanho da fonte */
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            margin: 0 10px; /* Espaçamento entre os botões */
+        }
+
+        nav button:hover, nav button.active {
+            border-bottom: 3px solid var(--cor-acento);
+            color: var(--cor-acento);
+        }
+
+        /* =======================================================
+                4. CONTEÚDO (HOME E MATÉRIAS)
+                ======================================================= */
+        h2 {
+            color: var(--cor-principal);
+            border-bottom: 2px solid var(--cor-acento);
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        
+        .card-materia {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--cor-principal);
+            transition: transform 0.2s, box-shadow 0.2s, border-left 0.2s;
+            cursor: pointer; /* Adicionado para indicar clicabilidade */
+        }
+
+        .card-materia:hover {
+            border-left: 5px solid var(--cor-acento);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Estilo para lista de tópicos detalhados */
+        .lista-topicos {
+            list-style: none;
+            padding: 0;
+        }
+        .lista-topicos li {
+            background-color: #e6f7f7; /* Tom mais claro de verde/ciano */
+            border-left: 4px solid var(--cor-principal);
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 1.05rem; /* Aumento sutil da fonte */
+        }
+
+        /* =======================================================
+                5. SEÇÃO DE AVALIAÇÃO (QUIZ)
+                ======================================================= */
+        #quiz-config, #quiz-content, #quiz-results {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        #btn-iniciar-quiz {
+            background-color: var(--cor-principal);
+            color: white;
+            font-weight: bold;
+            padding: 12px 25px; /* Aumenta o tamanho do botão */
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #btn-iniciar-quiz:hover {
+            background-color: #006666;
+        }
+        
+        /* Estilização das Questões e Opções (Aumento do Tamanho) */
+        .question-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+        }
+        
+        .question-card h4 {
+            font-size: 1.15rem; /* Aumenta a fonte da pergunta */
+            margin-top: 0;
+        }
+        
+        .option-label {
+            display: block;
+            background: #f0fdfa;
+            padding: 12px 15px; /* Aumenta o tamanho da opção */
+            margin-bottom: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.05rem; /* Aumenta a fonte da opção */
+            transition: background 0.2s, border-color 0.2s;
+        }
+        
+        .option-label:hover {
+            background: #d4eaea;
+            border-color: var(--cor-principal);
+        }
+        
+        /* Estilo para opção selecionada */
+        input[type="radio"]:checked + .option-label {
+            background: #c7ede5; /* Um verde-água mais suave */
+            border-color: var(--cor-principal);
+            font-weight: bold;
+        }
+        
+        /* Esconde o radio button nativo */
+        input[type="radio"] {
+            display: none;
+        }
+        
+        /* Estilização do Relatório */
+        .feedback-item {
+            border: 1px solid var(--cor-erro);
+            background-color: #ffe0e0; /* Vermelho mais suave */
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        .feedback-item h4 {
+            color: var(--cor-erro);
+            font-size: 1.1rem;
+        }
+        .correct { color: var(--cor-sucesso); font-weight: bold; }
+        .incorrect { color: var(--cor-erro); font-weight: bold; }
+
+        /* Estilo para o botão de finalizar quiz */
+        #btn-finalizar-quiz, #quiz-results button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #btn-finalizar-quiz {
+            background-color: var(--cor-sucesso);
+            color: white;
+        }
+        
+        #btn-finalizar-quiz:hover {
+            background-color: #1e7e34;
+        }
+
+
+        /* =======================================================
+                6. RODAPÉ
+                ======================================================= */
+        footer {
+            background-color: var(--cor-principal);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+        
+        /* Ajuste para elementos de formulário */
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .name-gatinha{
+            color: red;
+            display: flex;
+            justify-content: left;
+            margin-top: 10vh;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        <h1>🚀 Plataforma de Preparação para IFTM</h1>
+        <button id="btn-comecar">Começar a Estudar ▶️</button>
+    </div>
+
+    <header id="main-header" style="display: none;">
+        <nav>
+            <button onclick="showPage('home-page', this)" id="nav-home" class="active">🏠 Home</button>
+            <button onclick="showPage('quiz-page', this)" id="nav-avaliacao">📝 Avaliação</button>
+        </nav>
+    </header>
+
+    <div id="home-page" class="page active container">
+        <h2>Áreas de Estudo 📚</h2>
+        <p>Selecione uma matéria para ver o conteúdo detalhado ou clique em '📝 Avaliação' no menu para testar seus conhecimentos.</p>
+        
+        <div id="materias-list">
+            <div class="card-materia" data-target="materia-portugues">
+                <h3>🗣️ Língua Portuguesa</h3>
+            </div>
+            <div class="card-materia" data-target="materia-matematica">
+                <h3>🧮 Matemática</h3>
+            </div>
+            <div class="card-materia" data-target="materia-ciencias">
+                <h3>🔬 Ciências da Natureza</h3>
+            </div>
+            <div class="card-materia" data-target="materia-historia">
+                <h3>📜 História</h3>
+            </div>
+            <div class="card-materia" data-target="materia-geografia">
+                <h3>🌎 Geografia</h3>
+            </div>
+        </div>
+
+        <div id="materia-detalhes">
+            <div id="materia-portugues" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <h3>🗣️ Língua Portuguesa</h3>
+                <ul class="lista-topicos">
+                    <li>Interpretação de Textos: Tema, Ideia Principal, Finalidade e Tom.</li>
+                    <li>Ideias Principais: Distinção entre mensagem central e detalhes.</li>
+                    <li>Significado de Palavras: Sentido Denotativo e Conotativo.</li>
+                    <li>Ortografia Avançada: Mal/Mau, Mas/Mais, Porquês, Hífen e Acentuação.</li>
+                    <li>Pontuação: Uso da Vírgula (Separação, Isolação), Ponto-e-vírgula e Dois-pontos.</li>
+                    <li>Classes Gramaticais: Reconhecimento e função de Substantivo, Verbo, Adjetivo e Advérbio.</li>
+                    <li>Concordância: Verbal (sujeito-verbo) e Nominal (artigo/adjetivo-substantivo).</li>
+                    <li>Crase: Regras de Uso e Proibições.</li>
+                    <li>Formação de Palavras: Derivação (Prefixal/Sufixal) e Composição.</li>
+                    <li>Coesão e Coerência Textual: Conectivos e Sentido Global.</li>
+                </ul>
+            </div>
+            <div id="materia-matematica" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <h3>🧮 Matemática</h3>
+                <ul class="lista-topicos">
+                    <li>Quatro Operações: Propriedades e Técnicas de Cálculo.</li>
+                    <li>MMC/MDC: Múltiplos e Divisores.</li>
+                    <li>Frações e Decimais: Simplificação, Equivalência e Operações.</li>
+                    <li>Porcentagem: Cálculo de Aumentos/Descontos e Proporcionalidades.</li>
+                    <li>Regra de Três: Simples (Direta/Inversa) e Composta.</li>
+                    <li>Expressões Numéricas: Ordem de Operações (PEMDAS/Parênteses, Expoentes, Multiplicação...).</li>
+                    <li>Equações Simples: Resolução de Equações do 1º Grau.</li>
+                    <li>Geometria: Área, Perímetro (Retângulo, Triângulo, Círculo) e Volume (Sólidos básicos).</li>
+                    <li>Raciocínio Lógico: Sequências Numéricas e Padrões.</li>
+                </ul>
+            </div>
+            <div id="materia-ciencias" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <h3>🔬 Ciências da Natureza</h3>
+                <ul class="lista-topicos">
+                    <li>Corpo Humano e Saúde: Anatomia básica e Hábitos Saudáveis.</li>
+                    <li>Sistemas do Corpo: Funções principais (Digestório, Respiratório, Circulatório, Nervoso).</li>
+                    <li>Alimentação e Higiene: Nutrientes essenciais e Prevenção de Doenças.</li>
+                    <li>Seres Vivos e Ecossistemas: Cadeias Alimentares, Produtores, Consumidores, Decompositores.</li>
+                    <li>Meio Ambiente: Impactos Humanos (Poluição, Desmatamento) e Conservação.</li>
+                    <li>Matéria e Energia: Estados e Transformações; Fontes de Energia.</li>
+                    <li>Terra e Universo: Estrutura da Terra, Sistema Solar e Galáxias.</li>
+                    <li>Movimentos da Terra: Rotação (Dia/Noite) e Translação (Estações).</li>
+                    <li>Fases da Lua: Ciclo Lunar e suas causas.</li>
+                </ul>
+            </div>
+            <div id="materia-historia" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <h3>📜 História</h3>
+                <ul class="lista-topicos">
+                    <li>Brasil: Colônia (Escravidão, Economia), Império (Monarquia), República (Oligárquica, Varguismo).</li>
+                    <li>Cultura Indígena/Africana: Influências e Resistência Cultural.</li>
+                    <li>Independência e Proclamação da República: Datas e Consequências.</li>
+                    <li>Constituição e Cidadania: Direitos e Deveres.</li>
+                    <li>Civilizações Antigas: Legados da Mesopotâmia, Egito, Grécia e Roma.</li>
+                    <li>Idades Históricas: Média (Feudalismo), Moderna (Renascimento), Contemporânea (Revoluções).</li>
+                    <li>Ditadura Militar e Redemocratização: Contexto, Repressão e Constituição de 1988.</li>
+                </ul>
+            </div>
+            <div id="materia-geografia" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <h3>🌎 Geografia</h3>
+                <ul class="lista-topicos">
+                    <li>Pontos Cardeais: Orientação e Rosa dos Ventos.</li>
+                    <li>Cartografia: Escala, Legenda, Coordenadas (Latitude/Longitude).</li>
+                    <li>Regiões do Brasil: Características socioeconômicas e ambientais (Norte, Nordeste, Centro-Oeste, Sudeste, Sul).</li>
+                    <li>População e Migrações: Distribuição, Êxodo Rural, Taxas Demográficas.</li>
+                    <li>Atividades Econômicas: Setores Primário, Secundário, Terciário e Quartário.</li>
+                    <li>Continentes e Países: Localização e Características Globais.</li>
+                    <li>Meio Ambiente e Preservação: Desmatamento, Poluição e Unidades de Conservação.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="quiz-page" class="page container">
+        <h2>Avaliação: Teste Seus Conhecimentos 🧠</h2>
+
+        <div id="quiz-config">
+            <h3>Configure Seu Teste</h3>
+            <div class="form-group">
+                <label for="select-disciplina">Selecione a(s) Disciplina(s):</label>
+                <select id="select-disciplina" multiple size="5">
+                    <option value="portugues" selected>Língua Portuguesa 🗣️</option>
+                    <option value="matematica">Matemática ➕</option>
+                    <option value="ciencias">Ciências da Natureza 🧬</option>
+                    <option value="historia">História 👑</option>
+                    <option value="geografia">Geografia 🗺️</option>
+                </select>
+                <small>Segure **CTRL/CMD** para selecionar múltiplas.</small>
+            </div>
+            <div class="form-group">
+                <label for="select-nivel">Nível de Dificuldade:</label>
+                <select id="select-nivel">
+                    <option value="facil">Fácil (Iniciante) 👶</option>
+                    <option value="medio" selected>Médio (Intermediário) 🧑</option>
+                    <option value="dificil">Difícil (Avançado) 🎓</option>
+                </select>
+            </div>
+            <button id="btn-iniciar-quiz">Iniciar Quiz (15 Questões) 🏁</button>
+        </div>
+<div>
+    <h1 class="nome-gatinha">Raissa Linda </h1>
+</div>
+        <div id="quiz-content" style="display: none;">
+            <h3>Quiz de Preparação</h3>
+            <p>Questão <span id="current-question-number">1</span> de 15</p>
+            <div id="questions-container">
+                </div>
+            <button id="btn-finalizar-quiz" style="display: none;">Finalizar Quiz e Ver Resultado ✅</button>
+        </div>
+
+        <div id="quiz-results" style="display: none;">
+            <h3>Relatório de Desempenho 📊</h3>
+            <p>Total de Acertos: <span id="total-acertos" class="correct"></span> / 15</p>
+            <p>Total de Erros: <span id="total-erros" class="incorrect"></span> / 15</p>
+            
+            <h4>Desempenho por Disciplina:</h4>
+            <div id="desempenho-disciplinas">
+                </div>
+
+            <h4>Revisão e Feedback:</h4>
+            <div id="feedback-revisao">
+                </div>
+            <button onclick="showPage('quiz-page')">Fazer Novo Teste 🔄</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Direitos Reservados: Marcelo Gonçalves Cardoso</p>
+    </footer>
+
+    <script>
+        
+        // =======================================================
+        // 1. BANCO DE QUESTÕES (EXPANDIDO)
+        // =======================================================
+        const QUESTION_COUNT = 15;
+        const questionsDB = [
+            // PORTUGUÊS
+            { id: 1, disciplina: 'portugues', nivel: 'facil', texto: 'Qual classe gramatical nomeia seres e objetos?', opcoes: ['Adjetivo', 'Verbo', 'Substantivo', 'Advérbio'], resposta_correta: 'Substantivo', explicacao: 'Substantivos são a classe de palavras que dá nome a seres, objetos, lugares, sentimentos e ideias. O adjetivo qualifica, o verbo indica ação e o advérbio modifica.' },
+            { id: 6, disciplina: 'portugues', nivel: 'dificil', texto: 'Em qual opção o uso da Crase está correto?', opcoes: ['Fui à padaria.', 'Fui à ele.', 'Vou à Salvador.', 'Ela se refere à algo.'], resposta_correta: 'Fui à padaria.', explicacao: 'O verbo "ir" exige a preposição "a" (Fui a) e a palavra "padaria" exige o artigo feminino "a" (a padaria). A fusão é obrigatória (Fui à padaria). As demais estão incorretas: antes de pronome pessoal ("ele"), antes de nome de lugar que não aceita artigo ("Salvador") e antes de pronome indefinido ("algo"), a crase é proibida.' },
+            { id: 7, disciplina: 'portugues', nivel: 'medio', texto: 'Qual figura de linguagem se baseia na omissão de um termo facilmente subentendido?', opcoes: ['Metáfora', 'Elipse', 'Hipérbole', 'Eufemismo'], resposta_correta: 'Elipse', explicacao: 'Elipse é a omissão de um termo que pode ser facilmente identificado pelo contexto, diferentemente da zeugma, que omite um termo já mencionado. Metáfora é comparação implícita, hipérbole é exagero e eufemismo é suavização.' },
+            // MATEMÁTICA
+            { id: 2, disciplina: 'matematica', nivel: 'facil', texto: 'Qual o resultado de 5 + 3 * 2?', opcoes: ['16', '11', '13', '10'], resposta_correta: '11', explicacao: 'A ordem das operações exige que a multiplicação (3 * 2 = 6) seja feita antes da adição (5 + 6 = 11).' },
+            { id: 8, disciplina: 'matematica', nivel: 'medio', texto: 'Uma televisão custa R$ 800,00. Se ela for vendida com 10% de desconto, qual será o valor final?', opcoes: ['R$ 790,00', 'R$ 720,00', 'R$ 880,00', 'R$ 700,00'], resposta_correta: 'R$ 720,00', explicacao: 'O desconto de 10% de R$ 800,00 é R$ 80,00. O valor final é R$ 800,00 - R$ R$ 80,00 = R$ 720,00.' },
+            { id: 9, disciplina: 'matematica', nivel: 'dificil', texto: 'Se 3 torneiras enchem um tanque em 6 horas, quantas horas 2 torneiras levariam para encher o mesmo tanque?', opcoes: ['4 horas', '9 horas', '12 horas', '8 horas'], resposta_correta: '9 horas', explicacao: 'É uma regra de três inversa: (3 torneiras * 6 horas) = (2 torneiras * X horas). 18 = 2X. X = 9 horas.' },
+            // GEOGRAFIA
+            { id: 3, disciplina: 'geografia', nivel: 'facil', texto: 'Qual ponto cardeal fica à direita do Norte em um mapa?', opcoes: ['Sul', 'Leste', 'Oeste', 'Noroeste'], resposta_correta: 'Leste', explicacao: 'O Leste (East) fica à direita do Norte em um mapa padrão, seguindo o sentido horário (N, L, S, O).' },
+            { id: 10, disciplina: 'geografia', nivel: 'medio', texto: 'Qual região brasileira é a maior em extensão territorial e onde se localiza a maior parte da Floresta Amazônica?', opcoes: ['Nordeste', 'Centro-Oeste', 'Norte', 'Sudeste'], resposta_correta: 'Norte', explicacao: 'A Região Norte é a maior em área e abriga a maior parte do bioma amazônico.' },
+            { id: 11, disciplina: 'geografia', nivel: 'dificil', texto: 'O que representa o conceito de "população relativa" ou "densidade demográfica"?', opcoes: ['Número total de habitantes.', 'Taxa de natalidade de uma área.', 'Relação entre habitantes e território.', 'Movimento migratório.'], resposta_correta: 'Relação entre habitantes e território.', explicacao: 'População relativa (ou densidade demográfica) é calculada dividindo-se o número de habitantes pela área total (habitantes/km²).' },
+            // HISTÓRIA
+            { id: 4, disciplina: 'historia', nivel: 'medio', texto: 'O que a Proclamação da República (1889) marcou no Brasil?', opcoes: ['O fim da escravidão', 'O início da monarquia', 'O fim do regime monárquico', 'A Independência do Brasil'], resposta_correta: 'O fim do regime monárquico', explicacao: 'A Proclamação da República pôs fim ao Império (monarquia) e deu início ao regime republicano no Brasil.' },
+            { id: 12, disciplina: 'historia', nivel: 'facil', texto: 'Qual império foi governado por Faraós e construiu as Pirâmides de Gizé?', opcoes: ['Império Romano', 'Grécia Antiga', 'Egito Antigo', 'Mesopotâmia'], resposta_correta: 'Egito Antigo', explicacao: 'Os Faraós foram os reis do Egito Antigo, responsáveis pela construção das grandes pirâmides.' },
+            { id: 13, disciplina: 'historia', nivel: 'dificil', texto: 'Qual período histórico é caracterizado pelo sistema Feudal (servidão, poder descentralizado da nobreza e influência da Igreja)?', opcoes: ['Idade Contemporânea', 'Idade Moderna', 'Idade Média', 'Antiguidade Clássica'], resposta_correta: 'Idade Média', explicacao: 'O Feudalismo foi o sistema predominante na Europa durante a Idade Média (séculos V ao XV).' },
+            // CIÊNCIAS DA NATUREZA
+            { id: 5, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual sistema corporal é responsável pelo transporte de oxigênio e nutrientes?', opcoes: ['Sistema Nervoso', 'Sistema Respiratório', 'Sistema Digestório', 'Sistema Circulatório'], resposta_correta: 'Sistema Circulatório', explicacao: 'O Sistema Circulatório (coração, vasos e sangue) é o principal responsável pelo transporte de gases (O2) e nutrientes pelo corpo.' },
+            { id: 14, disciplina: 'ciencias', nivel: 'facil', texto: 'O que a Rotação da Terra causa?', opcoes: ['As estações do ano', 'As fases da Lua', 'O dia e a noite', 'Os eclipses'], resposta_correta: 'O dia e a noite', explicacao: 'O movimento de Rotação (giro da Terra em torno do seu próprio eixo) é o responsável pela alternância entre o dia e a noite.' },
+            { id: 15, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual é o processo pelo qual as plantas produzem seu próprio alimento, utilizando luz solar, água e gás carbônico?', opcoes: ['Respiração', 'Transpiração', 'Fotossíntese', 'Germinação'], resposta_correta: 'Fotossíntese', explicacao: 'A Fotossíntese é o processo fundamental onde plantas, algas e algumas bactérias usam a energia luminosa para converter $\\text{CO}_2$ e $\\text{H}_2\\text{O}$ em glicose (alimento) e oxigênio.' },
+            // Questão extra para garantir o mínimo de 15 no sorteio
+            { id: 16, disciplina: 'portugues', nivel: 'facil', texto: 'Qual a principal função do verbo em uma frase?', opcoes: ['Qualificar o substantivo', 'Ligar duas orações', 'Expressar ação, estado ou fenômeno', 'Substituir um nome'], resposta_correta: 'Expressar ação, estado ou fenômeno', explicacao: 'O verbo é a classe de palavra que denota ação (correr), estado (ser, estar) ou fenômeno da natureza (chover).' }
+        ];
+
+        let currentQuizQuestions = []; // Armazena as 15 questões sorteadas para o quiz atual
+        let userAnswers = {}; // Armazena as respostas do usuário {questionId: 'resposta'}
+
+        // =======================================================
+        // 2. CONTROLE DE PÁGINAS E NAVEGAÇÃO
+        // =======================================================
+        document.getElementById('btn-comecar').addEventListener('click', function() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.getElementById('main-header').style.display = 'block';
+            document.getElementById('home-page').classList.add('active');
+            document.getElementById('splash-screen').classList.remove('active');
+            
+            document.getElementById('nav-home').classList.add('active');
+            document.getElementById('nav-avaliacao').classList.remove('active');
+        });
+
+        function showPage(pageId, navButton = null) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.materia-detalhe').forEach(detail => detail.style.display = 'none');
+            document.getElementById('materias-list').style.display = 'block';
+            
+            document.getElementById(pageId).classList.add('active');
+
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+            // Lógica para ativar o botão de navegação correto, mesmo quando a página é chamada por um botão de voltar
+            if (navButton) {
+                navButton.classList.add('active');
+            } else if (pageId === 'home-page') {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (pageId === 'quiz-page') {
+                document.getElementById('nav-avaliacao').classList.add('active');
+                // Se for para a página de quiz, garante que a config esteja visível para iniciar novo teste
+                document.getElementById('quiz-config').style.display = 'block';
+                document.getElementById('quiz-content').style.display = 'none';
+                document.getElementById('quiz-results').style.display = 'none';
+            }
+        }
+
+        // Event listener para mostrar o detalhe das matérias
+        document.querySelectorAll('.card-materia').forEach(card => {
+            card.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                document.getElementById('materias-list').style.display = 'none';
+                
+                // Oculta todos os detalhes primeiro, e depois mostra o alvo
+                document.querySelectorAll('.materia-detalhe').forEach(detail => detail.style.display = 'none');
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+
+
+        // =======================================================
+        // 3. LÓGICA DO QUIZ
+        // =======================================================
+
+        // Função utilitária para embaralhar um array (Algoritmo Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        document.getElementById('btn-iniciar-quiz').addEventListener('click', function() {
+            // LÊ MÚLTIPLAS DISCIPLINAS SELECIONADAS (COM O ATRIBUTO 'multiple' do HTML)
+            const selectedDisciplines = Array.from(document.getElementById('select-disciplina').selectedOptions).map(option => option.value);
+            const selectedNivel = document.getElementById('select-nivel').value;
+            
+            if (selectedDisciplines.length === 0) {
+                alert('Por favor, selecione pelo menos uma disciplina.');
+                return;
+            }
+
+            // 1. Filtrar o banco de dados pelas seleções do usuário
+            // Filtra se a disciplina da questão está no array de selectedDisciplines E o nível corresponde.
+            let availableQuestions = questionsDB.filter(q => 
+                selectedDisciplines.includes(q.disciplina) && q.nivel === selectedNivel
+            );
+            
+            // 2. Garantir que temos 15 questões (com repetição se necessário)
+            if (availableQuestions.length === 0) {
+                alert('Não há questões disponíveis para a seleção de disciplina e nível. Por favor, tente outra combinação.');
+                return;
+            }
+            
+            // Embaralhar as questões disponíveis
+            availableQuestions = shuffleArray(availableQuestions);
+
+            // Selecionar 15 questões aleatoriamente (repetindo se o banco for menor que 15)
+            currentQuizQuestions = [];
+            for (let i = 0; i < QUESTION_COUNT; i++) {
+                // Usamos o índice modular para garantir que teremos 15 perguntas, mesmo se o filtro retornar menos de 15.
+                currentQuizQuestions.push(availableQuestions[i % availableQuestions.length]);
+            }
+            
+            // Resetar respostas (apenas se for um novo quiz, mas manter o objeto para a função salvar)
+            // Se esta linha estivesse faltando, a persistência não funcionaria:
+            userAnswers = {}; 
+
+            document.getElementById('quiz-config').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-content').style.display = 'block';
+            document.getElementById('btn-finalizar-quiz').style.display = 'block';
+            
+            renderQuizQuestions();
+        });
+
+        // FUNÇÃO CRÍTICA: SALVA A RESPOSTA NO OBJETO userAnswers
+        function saveAnswer(questionId, answer) {
+            // PONTO CHAVE: Usa o ID único da questão (do banco de dados) como chave para guardar a resposta
+            userAnswers[questionId] = answer; 
+        }
+
+
+        // FUNÇÃO CRÍTICA: RENDERIZA AS QUESTÕES E APLICA O ESTADO SALVO
+        function renderQuizQuestions() {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+            
+            currentQuizQuestions.forEach((q, index) => {
+                const questionHtml = document.createElement('div');
+                questionHtml.className = 'question-card';
+                
+                const emojiMap = {
+                    'portugues': '🗣️', 'matematica': '🧮', 'ciencias': '🔬', 'historia': '📜', 'geografia': '🌎'
+                };
+                const discEmoji = emojiMap[q.disciplina] || '❓';
+                
+                // Mapeia e embaralha as opções para esta questão
+                const shuffledOptions = shuffleArray([...q.opcoes]); 
+
+                // **LEITURA DO ESTADO SALVO:** Pega a resposta previamente salva no objeto userAnswers
+                const checkedValue = userAnswers[q.id];
+
+                // Renderiza o HTML das opções
+                const optionsHtml = shuffledOptions.map((option, optIndex) => {
+                    // ID ÚNICO E VÁLIDO para o input e o label (chave para a seleção funcionar)
+                    const uniqueId = `q${index}-opt${optIndex}`;
+                    
+                    // **APLICAÇÃO DA PERSISTÊNCIA:** Marca o radio button como 'checked'
+                    // se o valor da opção for igual à resposta guardada (checkedValue)
+                    return `
+                        <input type="radio" 
+                            id="${uniqueId}" 
+                            name="question-${q.id}"  
+                            value="${option}" 
+                            onchange="saveAnswer(${q.id}, this.value)"
+                            ${checkedValue === option ? 'checked' : ''}>
+                        <label class="option-label" for="${uniqueId}">
+                            ${option}
+                        </label>
+                    `;
+                }).join('');
+
+
+                questionHtml.innerHTML = `
+                    <h4>${index + 1}. [${discEmoji} ${q.disciplina.toUpperCase()}] ${q.texto}</h4>
+                    <div id="options-${q.id}">
+                        ${optionsHtml}
+                    </div>
+                `;
+                container.appendChild(questionHtml);
+            });
+            
+            // Atualiza o contador de questões
+            document.getElementById('current-question-number').textContent = currentQuizQuestions.length;
+        }
+
+        // Finalizar e Calcular o Quiz
+        document.getElementById('btn-finalizar-quiz').addEventListener('click', function() {
+            let totalAcertos = 0;
+            const disciplinaAcertos = {};
+
+            // Inicializa o contador por disciplina
+            currentQuizQuestions.forEach(q => {
+                if (!disciplinaAcertos[q.disciplina]) {
+                    disciplinaAcertos[q.disciplina] = { total: 0, acertos: 0 };
+                }
+                disciplinaAcertos[q.disciplina].total++;
+            });
+
+            const feedbackHtml = document.getElementById('feedback-revisao');
+            feedbackHtml.innerHTML = '';
+            
+            // Processa as respostas
+            currentQuizQuestions.forEach((q, index) => {
+                // Pega a resposta guardada pela função saveAnswer
+                const userAnswer = userAnswers[q.id]; 
+                const isCorrect = userAnswer === q.resposta_correta;
+                
+                if (isCorrect) {
+                    totalAcertos++;
+                    disciplinaAcertos[q.disciplina].acertos++;
+                } else {
+                    const feedbackItem = document.createElement('div');
+                    feedbackItem.className = 'feedback-item';
+                    feedbackItem.innerHTML = `
+                        <h4>❌ Erro na Questão ${index + 1} (${q.disciplina.toUpperCase()})</h4>
+                        <p><strong>Sua Resposta:</strong> <span class="incorrect">${userAnswer || 'Não Respondida'}</span></p>
+                        <p><strong>Resposta Correta:</strong> <span class="correct">${q.resposta_correta}</span></p>
+                        <p><strong>Tópico para Revisão:</strong> ${q.explicacao}</p>
+                    `;
+                    feedbackHtml.appendChild(feedbackItem);
+                }
+            });
+
+            // Exibir o Relatório
+            document.getElementById('total-acertos').textContent = totalAcertos;
+            document.getElementById('total-erros').textContent = QUESTION_COUNT - totalAcertos;
+            
+            const desempenhoDisciplinasHtml = document.getElementById('desempenho-disciplinas');
+            desempenhoDisciplinasHtml.innerHTML = '';
+
+            for (const disc in disciplinaAcertos) {
+                const { total, acertos } = disciplinaAcertos[disc];
+                const percentual = total > 0 ? ((acertos / total) * 100).toFixed(0) : 0;
+                desempenhoDisciplinasHtml.innerHTML += `<p><strong>${disc.toUpperCase()}:</strong> ${acertos} de ${total} (${percentual}%)</p>`;
+            }
+
+            // Mudar a visualização
+            document.getElementById('quiz-content').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            document.getElementById('quiz-config').style.display = 'block';
+        });
+
+        // Ocultar home ao carregar para mostrar o splash screen
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('home-page').classList.remove('active');
+            document.getElementById('main-header').style.display = 'none';
+            // Garante que os detalhes das matérias estejam ocultos ao iniciar
+            document.querySelectorAll('.materia-detalhe').forEach(detail => detail.style.display = 'none');
+        });
+
+    </script>
+</body>
+</html>
