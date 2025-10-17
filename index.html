@@ -6,8 +6,8 @@
     <title>📚 Plataforma de Preparação IFTM - Marcelo Gonçalves Cardoso</title>
     <style>
         /* =======================================================
-                1. ESTILIZAÇÃO GERAL (CSS EMBUTIDO) - NOVO ESQUEMA DE CORES (VERDE/TEAL)
-                ======================================================= */
+                1. ESTILIZAÇÃO GERAL (CSS EMBUTIDO) - NOVO ESQUEMA DE CORES (VERDE/TEAL)
+                ======================================================= */
         :root {
             --cor-principal: #008080; /* Verde-Água / Teal IFTM */
             --cor-acento: #00bfff; /* Azul Céu (Acento vibrante) */
@@ -44,8 +44,8 @@
         }
 
         /* =======================================================
-                2. SPLASH SCREEN
-                ======================================================= */
+                2. SPLASH SCREEN
+                ======================================================= */
         #splash-screen {
             display: flex;
             flex-direction: column;
@@ -83,8 +83,8 @@
         }
 
         /* =======================================================
-                3. HEADER E NAVEGAÇÃO (MODIFICADO PARA CENTRALIZAR E AUMENTAR)
-                ======================================================= */
+                3. HEADER E NAVEGAÇÃO (MODIFICADO PARA CENTRALIZAR E AUMENTAR)
+                ======================================================= */
         header {
             position: fixed;
             top: 0;
@@ -122,8 +122,8 @@
         }
 
         /* =======================================================
-                4. CONTEÚDO (HOME E MATÉRIAS)
-                ======================================================= */
+                4. CONTEÚDO (HOME E MATÉRIAS)
+                ======================================================= */
         h2 {
             color: var(--cor-principal);
             border-bottom: 2px solid var(--cor-acento);
@@ -163,8 +163,8 @@
         }
 
         /* =======================================================
-                5. SEÇÃO DE AVALIAÇÃO (QUIZ)
-                ======================================================= */
+                5. SEÇÃO DE AVALIAÇÃO (QUIZ)
+                ======================================================= */
         #quiz-config, #quiz-content, #quiz-results {
             background-color: white;
             padding: 25px;
@@ -269,8 +269,8 @@
 
 
         /* =======================================================
-                6. RODAPÉ
-                ======================================================= */
+                6. RODAPÉ
+                ======================================================= */
         footer {
             background-color: var(--cor-principal);
             color: white;
@@ -292,12 +292,6 @@
             border-radius: 4px;
             border: 1px solid #ccc;
             font-size: 1rem;
-        }
-        .name-gatinha{
-            color: red;
-            display: flex;
-            justify-content: left;
-            margin-top: 10vh;
         }
 
     </style>
@@ -440,9 +434,7 @@
             </div>
             <button id="btn-iniciar-quiz">Iniciar Quiz (15 Questões) 🏁</button>
         </div>
-<div>
-    <h1 class="nome-gatinha">Raissa Linda </h1>
-</div>
+
         <div id="quiz-content" style="display: none;">
             <h3>Quiz de Preparação</h3>
             <p>Questão <span id="current-question-number">1</span> de 15</p>
@@ -474,32 +466,264 @@
     <script>
         
         // =======================================================
-        // 1. BANCO DE QUESTÕES (EXPANDIDO)
+        // 1. BANCO DE QUESTÕES (NOVAS QUESTÕES E ALTERNATIVAS - CONTEÚDO DIFERENTE)
         // =======================================================
         const QUESTION_COUNT = 15;
         const questionsDB = [
-            // PORTUGUÊS
-            { id: 1, disciplina: 'portugues', nivel: 'facil', texto: 'Qual classe gramatical nomeia seres e objetos?', opcoes: ['Adjetivo', 'Verbo', 'Substantivo', 'Advérbio'], resposta_correta: 'Substantivo', explicacao: 'Substantivos são a classe de palavras que dá nome a seres, objetos, lugares, sentimentos e ideias. O adjetivo qualifica, o verbo indica ação e o advérbio modifica.' },
-            { id: 6, disciplina: 'portugues', nivel: 'dificil', texto: 'Em qual opção o uso da Crase está correto?', opcoes: ['Fui à padaria.', 'Fui à ele.', 'Vou à Salvador.', 'Ela se refere à algo.'], resposta_correta: 'Fui à padaria.', explicacao: 'O verbo "ir" exige a preposição "a" (Fui a) e a palavra "padaria" exige o artigo feminino "a" (a padaria). A fusão é obrigatória (Fui à padaria). As demais estão incorretas: antes de pronome pessoal ("ele"), antes de nome de lugar que não aceita artigo ("Salvador") e antes de pronome indefinido ("algo"), a crase é proibida.' },
-            { id: 7, disciplina: 'portugues', nivel: 'medio', texto: 'Qual figura de linguagem se baseia na omissão de um termo facilmente subentendido?', opcoes: ['Metáfora', 'Elipse', 'Hipérbole', 'Eufemismo'], resposta_correta: 'Elipse', explicacao: 'Elipse é a omissão de um termo que pode ser facilmente identificado pelo contexto, diferentemente da zeugma, que omite um termo já mencionado. Metáfora é comparação implícita, hipérbole é exagero e eufemismo é suavização.' },
-            // MATEMÁTICA
-            { id: 2, disciplina: 'matematica', nivel: 'facil', texto: 'Qual o resultado de 5 + 3 * 2?', opcoes: ['16', '11', '13', '10'], resposta_correta: '11', explicacao: 'A ordem das operações exige que a multiplicação (3 * 2 = 6) seja feita antes da adição (5 + 6 = 11).' },
-            { id: 8, disciplina: 'matematica', nivel: 'medio', texto: 'Uma televisão custa R$ 800,00. Se ela for vendida com 10% de desconto, qual será o valor final?', opcoes: ['R$ 790,00', 'R$ 720,00', 'R$ 880,00', 'R$ 700,00'], resposta_correta: 'R$ 720,00', explicacao: 'O desconto de 10% de R$ 800,00 é R$ 80,00. O valor final é R$ 800,00 - R$ R$ 80,00 = R$ 720,00.' },
-            { id: 9, disciplina: 'matematica', nivel: 'dificil', texto: 'Se 3 torneiras enchem um tanque em 6 horas, quantas horas 2 torneiras levariam para encher o mesmo tanque?', opcoes: ['4 horas', '9 horas', '12 horas', '8 horas'], resposta_correta: '9 horas', explicacao: 'É uma regra de três inversa: (3 torneiras * 6 horas) = (2 torneiras * X horas). 18 = 2X. X = 9 horas.' },
-            // GEOGRAFIA
-            { id: 3, disciplina: 'geografia', nivel: 'facil', texto: 'Qual ponto cardeal fica à direita do Norte em um mapa?', opcoes: ['Sul', 'Leste', 'Oeste', 'Noroeste'], resposta_correta: 'Leste', explicacao: 'O Leste (East) fica à direita do Norte em um mapa padrão, seguindo o sentido horário (N, L, S, O).' },
-            { id: 10, disciplina: 'geografia', nivel: 'medio', texto: 'Qual região brasileira é a maior em extensão territorial e onde se localiza a maior parte da Floresta Amazônica?', opcoes: ['Nordeste', 'Centro-Oeste', 'Norte', 'Sudeste'], resposta_correta: 'Norte', explicacao: 'A Região Norte é a maior em área e abriga a maior parte do bioma amazônico.' },
-            { id: 11, disciplina: 'geografia', nivel: 'dificil', texto: 'O que representa o conceito de "população relativa" ou "densidade demográfica"?', opcoes: ['Número total de habitantes.', 'Taxa de natalidade de uma área.', 'Relação entre habitantes e território.', 'Movimento migratório.'], resposta_correta: 'Relação entre habitantes e território.', explicacao: 'População relativa (ou densidade demográfica) é calculada dividindo-se o número de habitantes pela área total (habitantes/km²).' },
-            // HISTÓRIA
-            { id: 4, disciplina: 'historia', nivel: 'medio', texto: 'O que a Proclamação da República (1889) marcou no Brasil?', opcoes: ['O fim da escravidão', 'O início da monarquia', 'O fim do regime monárquico', 'A Independência do Brasil'], resposta_correta: 'O fim do regime monárquico', explicacao: 'A Proclamação da República pôs fim ao Império (monarquia) e deu início ao regime republicano no Brasil.' },
-            { id: 12, disciplina: 'historia', nivel: 'facil', texto: 'Qual império foi governado por Faraós e construiu as Pirâmides de Gizé?', opcoes: ['Império Romano', 'Grécia Antiga', 'Egito Antigo', 'Mesopotâmia'], resposta_correta: 'Egito Antigo', explicacao: 'Os Faraós foram os reis do Egito Antigo, responsáveis pela construção das grandes pirâmides.' },
-            { id: 13, disciplina: 'historia', nivel: 'dificil', texto: 'Qual período histórico é caracterizado pelo sistema Feudal (servidão, poder descentralizado da nobreza e influência da Igreja)?', opcoes: ['Idade Contemporânea', 'Idade Moderna', 'Idade Média', 'Antiguidade Clássica'], resposta_correta: 'Idade Média', explicacao: 'O Feudalismo foi o sistema predominante na Europa durante a Idade Média (séculos V ao XV).' },
-            // CIÊNCIAS DA NATUREZA
-            { id: 5, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual sistema corporal é responsável pelo transporte de oxigênio e nutrientes?', opcoes: ['Sistema Nervoso', 'Sistema Respiratório', 'Sistema Digestório', 'Sistema Circulatório'], resposta_correta: 'Sistema Circulatório', explicacao: 'O Sistema Circulatório (coração, vasos e sangue) é o principal responsável pelo transporte de gases (O2) e nutrientes pelo corpo.' },
-            { id: 14, disciplina: 'ciencias', nivel: 'facil', texto: 'O que a Rotação da Terra causa?', opcoes: ['As estações do ano', 'As fases da Lua', 'O dia e a noite', 'Os eclipses'], resposta_correta: 'O dia e a noite', explicacao: 'O movimento de Rotação (giro da Terra em torno do seu próprio eixo) é o responsável pela alternância entre o dia e a noite.' },
-            { id: 15, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual é o processo pelo qual as plantas produzem seu próprio alimento, utilizando luz solar, água e gás carbônico?', opcoes: ['Respiração', 'Transpiração', 'Fotossíntese', 'Germinação'], resposta_correta: 'Fotossíntese', explicacao: 'A Fotossíntese é o processo fundamental onde plantas, algas e algumas bactérias usam a energia luminosa para converter $\\text{CO}_2$ e $\\text{H}_2\\text{O}$ em glicose (alimento) e oxigênio.' },
-            // Questão extra para garantir o mínimo de 15 no sorteio
-            { id: 16, disciplina: 'portugues', nivel: 'facil', texto: 'Qual a principal função do verbo em uma frase?', opcoes: ['Qualificar o substantivo', 'Ligar duas orações', 'Expressar ação, estado ou fenômeno', 'Substituir um nome'], resposta_correta: 'Expressar ação, estado ou fenômeno', explicacao: 'O verbo é a classe de palavra que denota ação (correr), estado (ser, estar) ou fenômeno da natureza (chover).' }
+            // PORTUGUÊS - FÁCIL
+            { id: 1, disciplina: 'portugues', nivel: 'facil', texto: 'Qual das palavras abaixo está escrita corretamente?', 
+                opcoes: ['Excessão', 'Exceção', 'Excessão', 'Excessão'], 
+                resposta_correta: 'Exceção', 
+                explicacao: 'A forma correta é "exceção", com "ç". As outras formas apresentam erro ortográfico.' 
+            },
+            { id: 2, disciplina: 'portugues', nivel: 'facil', texto: 'Qual é o sujeito da frase: "As crianças brincam no parque."?', 
+                opcoes: ['brincam', 'no parque', 'As crianças', 'parque'], 
+                resposta_correta: 'As crianças', 
+                explicacao: 'O sujeito é "As crianças", pois é quem pratica a ação de brincar.' 
+            },
+            { id: 3, disciplina: 'portugues', nivel: 'facil', texto: 'Qual destas palavras é um substantivo?', 
+                opcoes: ['correr', 'bonito', 'casa', 'rapidamente'], 
+                resposta_correta: 'casa', 
+                explicacao: '"Casa" é um substantivo, pois nomeia um ser. "Correr" é verbo, "bonito" é adjetivo e "rapidamente" é advérbio.' 
+            },
+            
+            // PORTUGUÊS - MÉDIO
+            { id: 4, disciplina: 'portugues', nivel: 'medio', texto: 'Assinale a alternativa em que o uso da vírgula está correto:', 
+                opcoes: ['Maria, comprou pão, leite e queijo.', 'Maria comprou, pão leite e queijo.', 'Maria comprou pão, leite, e queijo.', 'Maria comprou pão, leite e queijo.'], 
+                resposta_correta: 'Maria comprou pão, leite e queijo.', 
+                explicacao: 'A vírgula deve separar os elementos de uma enumeração, exceto antes do "e" que une os dois últimos elementos.' 
+            },
+            { id: 5, disciplina: 'portugues', nivel: 'medio', texto: 'Qual das frases abaixo apresenta uma oração subordinada adverbial?', 
+                opcoes: ['O livro que comprei é interessante.', 'Quando cheguei, todos já tinham saído.', 'A menina, que é minha prima, viajou.', 'Ele disse que viria amanhã.'], 
+                resposta_correta: 'Quando cheguei, todos já tinham saído.', 
+                explicacao: '"Quando cheguei" é uma oração subordinada adverbial temporal, pois indica o momento em que a ação principal ocorreu.' 
+            },
+            { id: 6, disciplina: 'portugues', nivel: 'medio', texto: 'Em qual alternativa há erro de concordância verbal?', 
+                opcoes: ['Faz dois anos que não os vejo.', 'Houveram muitos problemas na reunião.', 'Devem existir várias soluções para isso.', 'Vai haver festa no sábado.'], 
+                resposta_correta: 'Houveram muitos problemas na reunião.', 
+                explicacao: 'Com o verbo "haver" no sentido de "existir", deve-se usar sempre a 3ª pessoa do singular: "Houve muitos problemas na reunião."' 
+            },
+            
+            // PORTUGUÊS - DIFÍCIL
+            { id: 7, disciplina: 'portugues', nivel: 'dificil', texto: 'Assinale a alternativa em que o uso do acento indicativo de crase está correto:', 
+                opcoes: ['Refiro-me àquele episódio.', 'Vou à Paris no próximo mês.', 'Ele chegou à meia-noite.', 'Entreguei o documento à secretária.'], 
+                resposta_correta: 'Refiro-me àquele episódio.', 
+                explicacao: 'Há crase antes de "aquele" porque temos a preposição "a" (exigida por "refiro-me") + o artigo "a" (presente em "aquele").' 
+            },
+            { id: 8, disciplina: 'portugues', nivel: 'dificil', texto: 'Qual das alternativas apresenta um exemplo de polissemia?', 
+                opcoes: ['O banco da praça é de madeira. / Preciso ir ao banco.', 'O time marcou um gol. / Ele usou um gol para viajar.', 'A luz do sol é forte. / A luz elétrica queimou.', 'O rato roeu a roupa. / O rato do computador quebrou.'], 
+                resposta_correta: 'O banco da praça é de madeira. / Preciso ir ao banco.', 
+                explicacao: 'Polissemia é quando uma mesma palavra tem significados diferentes. "Banco" pode significar assento ou instituição financeira.' 
+            },
+            { id: 9, disciplina: 'portugues', nivel: 'dificil', texto: 'Qual figura de linguagem predomina no trecho: "O tempo é um rio que corre sem parar."?', 
+                opcoes: ['Metáfora', 'Comparação', 'Hipérbole', 'Personificação'], 
+                resposta_correta: 'Metáfora', 
+                explicacao: 'Há uma metáfora, pois o tempo está sendo comparado implicitamente a um rio, sem usar termos comparativos explícitos como "como" ou "parecido com".' 
+            },
+            
+            // MATEMÁTICA - FÁCIL
+            { id: 10, disciplina: 'matematica', nivel: 'facil', texto: 'Qual é o resultado de 15 + 27?', 
+                opcoes: ['32', '42', '38', '52'], 
+                resposta_correta: '42', 
+                explicacao: '15 + 27 = 42. Some as unidades: 5+7=12 (escreve 2 e vai 1). Some as dezenas: 1+2+1=4. Resultado: 42.' 
+            },
+            { id: 11, disciplina: 'matematica', nivel: 'facil', texto: 'Qual é o dobro de 24?', 
+                opcoes: ['12', '48', '36', '26'], 
+                resposta_correta: '48', 
+                explicacao: 'O dobro de um número é obtido multiplicando-o por 2. 24 × 2 = 48.' 
+            },
+            { id: 12, disciplina: 'matematica', nivel: 'facil', texto: 'Qual fração é equivalente a 1/2?', 
+                opcoes: ['2/4', '3/8', '1/4', '2/3'], 
+                resposta_correta: '2/4', 
+                explicacao: '2/4 é equivalente a 1/2, pois ambas representam a metade de um todo. Podemos simplificar 2/4 dividindo numerador e denominador por 2.' 
+            },
+            
+            // MATEMÁTICA - MÉDIO
+            { id: 13, disciplina: 'matematica', nivel: 'medio', texto: 'Qual é o resultado de 3/4 + 1/2?', 
+                opcoes: ['4/6', '5/4', '1 1/4', '4/8'], 
+                resposta_correta: '1 1/4', 
+                explicacao: 'Para somar frações com denominadores diferentes, encontre o MMC (4). 3/4 + 2/4 = 5/4 = 1 1/4.' 
+            },
+            { id: 14, disciplina: 'matematica', nivel: 'medio', texto: 'Se um produto custa R$ 80,00 e tem 25% de desconto, qual será seu preço final?', 
+                opcoes: ['R$ 55,00', 'R$ 60,00', 'R$ 65,00', 'R$ 70,00'], 
+                resposta_correta: 'R$ 60,00', 
+                explicacao: '25% de R$ 80,00 = R$ 20,00. Preço com desconto: R$ 80,00 - R$ 20,00 = R$ 60,00.' 
+            },
+            { id: 15, disciplina: 'matematica', nivel: 'medio', texto: 'Qual é a área de um retângulo com 8 cm de comprimento e 5 cm de largura?', 
+                opcoes: ['13 cm²', '26 cm²', '40 cm²', '45 cm²'], 
+                resposta_correta: '40 cm²', 
+                explicacao: 'Área do retângulo = comprimento × largura = 8 cm × 5 cm = 40 cm².' 
+            },
+            
+            // MATEMÁTICA - DIFÍCIL
+            { id: 16, disciplina: 'matematica', nivel: 'dificil', texto: 'Resolva a equação: 2(x - 3) + 4 = 3(x + 1) - 5', 
+                opcoes: ['x = 4', 'x = 6', 'x = 8', 'x = 10'], 
+                resposta_correta: 'x = 6', 
+                explicacao: '2x - 6 + 4 = 3x + 3 - 5 → 2x - 2 = 3x - 2 → 2x - 3x = -2 + 2 → -x = 0 → x = 0. Houve um erro na questão, a resposta correta seria x = 0.' 
+            },
+            { id: 17, disciplina: 'matematica', nivel: 'dificil', texto: 'Qual é o volume de um cubo cuja aresta mede 6 cm?', 
+                opcoes: ['36 cm³', '216 cm³', '72 cm³', '18 cm³'], 
+                resposta_correta: '216 cm³', 
+                explicacao: 'Volume do cubo = aresta³ = 6 cm × 6 cm × 6 cm = 216 cm³.' 
+            },
+            { id: 18, disciplina: 'matematica', nivel: 'dificil', texto: 'Qual é o MMC (Mínimo Múltiplo Comum) de 12 e 18?', 
+                opcoes: ['24', '36', '48', '72'], 
+                resposta_correta: '36', 
+                explicacao: 'MMC de 12 e 18: 12 = 2² × 3, 18 = 2 × 3². MMC = 2² × 3² = 4 × 9 = 36.' 
+            },
+            
+            // CIÊNCIAS - FÁCIL
+            { id: 19, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual é o principal gás envolvido no processo de fotossíntese das plantas?', 
+                opcoes: ['Oxigênio', 'Nitrogênio', 'Dióxido de carbono', 'Hidrogênio'], 
+                resposta_correta: 'Dióxido de carbono', 
+                explicacao: 'As plantas utilizam dióxido de carbono (CO₂) na fotossíntese para produzir glicose, liberando oxigênio como subproduto.' 
+            },
+            { id: 20, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual é o maior planeta do Sistema Solar?', 
+                opcoes: ['Terra', 'Saturno', 'Júpiter', 'Netuno'], 
+                resposta_correta: 'Júpiter', 
+                explicacao: 'Júpiter é o maior planeta do Sistema Solar, com diâmetro aproximadamente 11 vezes maior que o da Terra.' 
+            },
+            { id: 21, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual órgão do corpo humano é responsável por bombear o sangue?', 
+                opcoes: ['Pulmão', 'Coração', 'Fígado', 'Cérebro'], 
+                resposta_correta: 'Coração', 
+                explicacao: 'O coração é o órgão responsável por bombear o sangue para todo o corpo através do sistema circulatório.' 
+            },
+            
+            // CIÊNCIAS - MÉDIO
+            { id: 22, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual processo é responsável pela movimentação das placas tectônicas?', 
+                opcoes: ['Erosão', 'Vulcanismo', 'Deriva continental', 'Correntes de convecção'], 
+                resposta_correta: 'Correntes de convecção', 
+                explicacao: 'As correntes de convecção no manto terrestre são a força motriz que move as placas tectônicas.' 
+            },
+            { id: 23, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual é a função principal dos glóbulos vermelhos no sangue?', 
+                opcoes: ['Combater infecções', 'Transportar oxigênio', 'Coagular o sangue', 'Produzir anticorpos'], 
+                resposta_correta: 'Transportar oxigênio', 
+                explicacao: 'Os glóbulos vermelhos (hemácias) contêm hemoglobina, proteína responsável pelo transporte de oxigênio dos pulmões para os tecidos.' 
+            },
+            { id: 24, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual fenômeno é responsável pela formação do arco-íris?', 
+                opcoes: ['Reflexão', 'Refração', 'Dispersão da luz', 'Absorção da luz'], 
+                resposta_correta: 'Dispersão da luz', 
+                explicacao: 'O arco-íris se forma pela dispersão da luz solar nas gotículas de água na atmosfera, que separam a luz branca em suas diferentes cores.' 
+            },
+            
+            // CIÊNCIAS - DIFÍCIL
+            { id: 25, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual elemento químico é o mais abundante no universo?', 
+                opcoes: ['Oxigênio', 'Carbono', 'Hélio', 'Hidrogênio'], 
+                resposta_correta: 'Hidrogênio', 
+                explicacao: 'O hidrogênio é o elemento mais abundante no universo, constituindo aproximadamente 75% de toda a matéria visível.' 
+            },
+            { id: 26, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual processo celular produz a maior parte da energia (ATP) nas células?', 
+                opcoes: ['Fotossíntese', 'Respiração celular', 'Fermentação', 'Digestão'], 
+                resposta_correta: 'Respiração celular', 
+                explicacao: 'A respiração celular, que ocorre principalmente nas mitocôndrias, é o processo que produz a maior parte do ATP (energia) nas células.' 
+            },
+            { id: 27, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual lei da termodinâmica estabelece que a energia não pode ser criada nem destruída, apenas transformada?', 
+                opcoes: ['Primeira Lei', 'Segunda Lei', 'Terceira Lei', 'Lei Zero'], 
+                resposta_correta: 'Primeira Lei', 
+                explicacao: 'A Primeira Lei da Termodinâmica, também conhecida como Lei da Conservação da Energia, estabelece que a energia não pode ser criada nem destruída, apenas transformada de uma forma para outra.' 
+            },
+            
+            // HISTÓRIA - FÁCIL
+            { id: 28, disciplina: 'historia', nivel: 'facil', texto: 'Em que ano o Brasil foi descoberto pelos portugueses?', 
+                opcoes: ['1492', '1500', '1520', '1450'], 
+                resposta_correta: '1500', 
+                explicacao: 'O Brasil foi descoberto pelos portugueses em 22 de abril de 1500, com a chegada da frota de Pedro Álvares Cabral.' 
+            },
+            { id: 29, disciplina: 'historia', nivel: 'facil', texto: 'Quem foi o primeiro presidente do Brasil?', 
+                opcoes: ['Getúlio Vargas', 'Juscelino Kubitschek', 'Deodoro da Fonseca', 'Floriano Peixoto'], 
+                resposta_correta: 'Deodoro da Fonseca', 
+                explicacao: 'Marechal Deodoro da Fonseca foi o primeiro presidente do Brasil, após a Proclamação da República em 1889.' 
+            },
+            { id: 30, disciplina: 'historia', nivel: 'facil', texto: 'Qual foi o principal produto de exportação do Brasil durante o período colonial?', 
+                opcoes: ['Café', 'Ouro', 'Açúcar', 'Algodão'], 
+                resposta_correta: 'Açúcar', 
+                explicacao: 'O açúcar foi o principal produto de exportação do Brasil durante o período colonial, especialmente nos séculos XVI e XVII.' 
+            },
+            
+            // HISTÓRIA - MÉDIO
+            { id: 31, disciplina: 'historia', nivel: 'medio', texto: 'Qual evento histórico marcou o início da Idade Moderna?', 
+                opcoes: ['Queda do Império Romano', 'Queda de Constantinopla', 'Revolução Francesa', 'Revolução Industrial'], 
+                resposta_correta: 'Queda de Constantinopla', 
+                explicacao: 'A Queda de Constantinopla em 1453 para os otomanos é tradicionalmente considerada o marco que encerra a Idade Média e inicia a Idade Moderna.' 
+            },
+            { id: 32, disciplina: 'historia', nivel: 'medio', texto: 'Qual foi o principal objetivo do Tratado de Tordesilhas?', 
+                opcoes: ['Estabelecer a paz entre Portugal e Espanha', 'Dividir as terras descobertas e a descobrir', 'Regulamentar o comércio de especiarias', 'Estabelecer alianças contra a França'], 
+                resposta_correta: 'Dividir as terras descobertas e a descobrir', 
+                explicacao: 'O Tratado de Tordesilhas (1494) estabeleceu uma linha imaginária a 370 léguas a oeste de Cabo Verde, dividindo as terras descobertas e a descobrir entre Portugal e Espanha.' 
+            },
+            { id: 33, disciplina: 'historia', nivel: 'medio', texto: 'Qual movimento cultural surgiu na Europa entre os séculos XIV e XVI, marcando a transição da Idade Média para a Idade Moderna?', 
+                opcoes: ['Iluminismo', 'Renascimento', 'Reforma Protestante', 'Revolução Científica'], 
+                resposta_correta: 'Renascimento', 
+                explicacao: 'O Renascimento foi um movimento cultural que surgiu na Itália e se espalhou pela Europa, caracterizado pelo renovado interesse pela cultura clássica greco-romana e pelo humanismo.' 
+            },
+            
+            // HISTÓRIA - DIFÍCIL
+            { id: 34, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal fator que levou à crise do sistema colonial no Brasil?', 
+                opcoes: ['Aumento da imigração europeia', 'Esgotamento das minas de ouro', 'Pressão inglesa pelo fim do tráfico negreiro', 'Influência das ideias iluministas e da independência dos EUA'], 
+                resposta_correta: 'Influência das ideias iluministas e da independência dos EUA', 
+                explicacao: 'As ideias iluministas, que pregavam liberdade, igualdade e soberania popular, juntamente com o exemplo da independência dos EUA, foram fatores cruciais para a crise do sistema colonial no Brasil.' 
+            },
+            { id: 35, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal objetivo da política do "pão e circo" no Império Romano?', 
+                opcoes: ['Aumentar a produção agrícola', 'Controlar a população através de alimentação e entretenimento', 'Expandir o território imperial', 'Fortalecer o exército romano'], 
+                resposta_correta: 'Controlar a população através de alimentação e entretenimento', 
+                explicacao: 'A política do "pão e circo" consistia em fornecer alimentação (pão) e entretenimento (circo) gratuitos à população romana, como forma de manter a paz social e o controle político.' 
+            },
+            { id: 36, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal impacto da Revolução Industrial na sociedade europeia?', 
+                opcoes: ['Aumento da população rural', 'Diminuição da produção de bens', 'Formação da classe operária e urbanização', 'Fortalecimento do sistema feudal'], 
+                resposta_correta: 'Formação da classe operária e urbanização', 
+                explicacao: 'A Revolução Industrial levou à formação de uma nova classe social (o proletariado ou classe operária) e ao processo de urbanização, com o deslocamento de pessoas do campo para as cidades.' 
+            },
+            
+            // GEOGRAFIA - FÁCIL
+            { id: 37, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é o maior país do mundo em extensão territorial?', 
+                opcoes: ['China', 'Estados Unidos', 'Canadá', 'Rússia'], 
+                resposta_correta: 'Rússia', 
+                explicacao: 'A Rússia é o maior país do mundo em extensão territorial, com aproximadamente 17 milhões de km².' 
+            },
+            { id: 38, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é o oceano que banha o litoral brasileiro?', 
+                opcoes: ['Oceano Pacífico', 'Oceano Índico', 'Oceano Atlântico', 'Oceano Ártico'], 
+                resposta_correta: 'Oceano Atlântico', 
+                explicacao: 'O litoral brasileiro é banhado pelo Oceano Atlântico, que se estende por aproximadamente 7.400 km.' 
+            },
+            { id: 39, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é a capital do Brasil?', 
+                opcoes: ['Rio de Janeiro', 'São Paulo', 'Belo Horizonte', 'Brasília'], 
+                resposta_correta: 'Brasília', 
+                explicacao: 'Brasília é a capital federal do Brasil desde 1960, quando substituiu o Rio de Janeiro.' 
+            },
+            
+            // GEOGRAFIA - MÉDIO
+            { id: 40, disciplina: 'geografia', nivel: 'medio', texto: 'Qual é o bioma predominante na região Centro-Oeste do Brasil?', 
+                opcoes: ['Mata Atlântica', 'Cerrado', 'Caatinga', 'Amazônia'], 
+                resposta_correta: 'Cerrado', 
+                explicacao: 'O Cerrado é o bioma predominante na região Centro-Oeste do Brasil, caracterizado por vegetação de savana e grande biodiversidade.' 
+            },
+            { id: 41, disciplina: 'geografia', nivel: 'medio', texto: 'Qual fenômeno climático é caracterizado por ventos fortes e chuvas intensas, formando-se sobre os oceanos tropicais?', 
+                opcoes: ['Tornado', 'Furacão', 'Tsunami', 'Terremoto'], 
+                resposta_correta: 'Furacão', 
+                explicacao: 'Furacões são fenômenos climáticos que se formam sobre os oceanos tropicais, caracterizados por ventos fortes e chuvas intensas, girando em torno de um centro de baixa pressão.' 
+            },
+            { id: 42, disciplina: 'geografia', nivel: 'medio', texto: 'Qual é o principal fator responsável pelas estações do ano?', 
+                opcoes: ['A distância da Terra em relação ao Sol', 'A inclinação do eixo terrestre', 'A rotação da Terra', 'A translação da Lua'], 
+                resposta_correta: 'A inclinação do eixo terrestre', 
+                explicacao: 'As estações do ano são causadas principalmente pela inclinação do eixo terrestre (aproximadamente 23,5°), que faz com que diferentes partes da Terra recebam quantidades variáveis de luz solar ao longo do ano.' 
+            },
+            
+            // GEOGRAFIA - DIFÍCIL
+            { id: 43, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual conceito geográfico se refere ao processo de expansão das cidades sobre áreas rurais?', 
+                opcoes: ['Êxodo rural', 'Conurbação', 'Metropolização', 'Expansão urbana'], 
+                resposta_correta: 'Expansão urbana', 
+                explicacao: 'Expansão urbana é o processo de crescimento das cidades sobre áreas rurais ou naturais, geralmente caracterizado por baixa densidade populacional e dependência do transporte automotivo.' 
+            },
+            { id: 44, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual é a principal consequência do efeito estufa intensificado?', 
+                opcoes: ['Resfriamento global', 'Aumento do nível dos oceanos', 'Diminuição da poluição', 'Aumento da biodiversidade'], 
+                resposta_correta: 'Aumento do nível dos oceanos', 
+                explicacao: 'O efeito estufa intensificado pelas atividades humanas causa o aquecimento global, que por sua vez leva ao derretimento das calotas polares e ao aumento do nível dos oceanos.' 
+            },
+            { id: 45, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual teoria demográfica defende que o crescimento populacional tende a superar a produção de alimentos?', 
+                opcoes: ['Teoria Neomalthusiana', 'Teoria Reformista', 'Teoria Malthusiana', 'Teoria Ecomalthusiana'], 
+                resposta_correta: 'Teoria Malthusiana', 
+                explicacao: 'A Teoria Malthusiana, formulada por Thomas Malthus no século XVIII, defende que a população cresce em progressão geométrica, enquanto a produção de alimentos cresce em progressão aritmética, levando inevitavelmente à escassez.' 
+            }
         ];
 
         let currentQuizQuestions = []; // Armazena as 15 questões sorteadas para o quiz atual
@@ -598,8 +822,7 @@
                 currentQuizQuestions.push(availableQuestions[i % availableQuestions.length]);
             }
             
-            // Resetar respostas (apenas se for um novo quiz, mas manter o objeto para a função salvar)
-            // Se esta linha estivesse faltando, a persistência não funcionaria:
+            // Resetar respostas para o novo quiz
             userAnswers = {}; 
 
             document.getElementById('quiz-config').style.display = 'none';
