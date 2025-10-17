@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,13 @@
                 1. ESTILIZAÇÃO GERAL (CSS EMBUTIDO) - NOVO ESQUEMA DE CORES (VERDE/TEAL)
                 ======================================================= */
         :root {
-            --cor-principal: #008080; /* Verde-Água / Teal IFTM */
-            --cor-acento: #00bfff; /* Azul Céu (Acento vibrante) */
+            --cor-principal: #008080;
+            /* Verde-Água / Teal IFTM */
+            --cor-acento: #00bfff;
+            /* Azul Céu (Acento vibrante) */
             --cor-secundaria: #6c757d;
-            --cor-fundo: #f0fdfa; /* Fundo mais claro e suave */
+            --cor-fundo: #f0fdfa;
+            /* Fundo mais claro e suave */
             --cor-texto: #343a40;
             --cor-sucesso: #28a745;
             --cor-erro: #dc3545;
@@ -25,7 +29,7 @@
             background-color: var(--cor-fundo);
             color: var(--cor-texto);
         }
-        
+
         /* Estilização padrão para o conteúdo dentro das páginas */
         .container {
             max-width: 1000px;
@@ -36,9 +40,11 @@
         /* Classes de exibição */
         .page {
             display: none;
-            padding-top: 65px; /* Ajuste para o menu fixo maior */
+            padding-top: 65px;
+            /* Ajuste para o menu fixo maior */
             min-height: 100vh;
         }
+
         .page.active {
             display: block;
         }
@@ -53,7 +59,8 @@
             align-items: center;
             height: 100vh;
             text-align: center;
-            background: linear-gradient(135deg, var(--cor-principal) 0%, #00b5ad 100%); /* Gradiente VT */
+            background: linear-gradient(135deg, var(--cor-principal) 0%, #00b5ad 100%);
+            /* Gradiente VT */
             color: white;
             padding: 20px;
         }
@@ -68,7 +75,8 @@
             padding: 18px 40px;
             font-size: 1.3rem;
             border: none;
-            border-radius: 50px; /* Mais arredondado */
+            border-radius: 50px;
+            /* Mais arredondado */
             cursor: pointer;
             background-color: var(--cor-acento);
             color: white;
@@ -94,29 +102,35 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-        
+
         /* Centralização do Menu: NOVO CSS */
         nav {
             display: flex;
-            justify-content: center; /* Centraliza os itens do menu no meio da tela */
-            padding: 5px 0; /* Ajuste de padding vertical */
+            justify-content: center;
+            /* Centraliza os itens do menu no meio da tela */
+            padding: 5px 0;
+            /* Ajuste de padding vertical */
         }
-        
+
         /* Aumento do Tamanho dos Itens do Menu: NOVO CSS */
         nav button {
             color: var(--cor-principal);
             border: none;
             background: none;
             cursor: pointer;
-            padding: 15px 30px; /* Aumenta o tamanho do botão */
-            font-size: 1.15rem; /* Aumenta o tamanho da fonte */
+            padding: 15px 30px;
+            /* Aumenta o tamanho do botão */
+            font-size: 1.15rem;
+            /* Aumenta o tamanho da fonte */
             font-weight: 600;
             transition: all 0.3s;
             border-bottom: 3px solid transparent;
-            margin: 0 10px; /* Espaçamento entre os botões */
+            margin: 0 10px;
+            /* Espaçamento entre os botões */
         }
 
-        nav button:hover, nav button.active {
+        nav button:hover,
+        nav button.active {
             border-bottom: 3px solid var(--cor-acento);
             color: var(--cor-acento);
         }
@@ -130,22 +144,23 @@
             padding-bottom: 5px;
             margin-top: 0;
         }
-        
+
         .card-materia {
             background-color: white;
             padding: 20px;
             margin-bottom: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             border-left: 5px solid var(--cor-principal);
             transition: transform 0.2s, box-shadow 0.2s, border-left 0.2s;
-            cursor: pointer; /* Adicionado para indicar clicabilidade */
+            cursor: pointer;
+            /* Adicionado para indicar clicabilidade */
         }
 
         .card-materia:hover {
             border-left: 5px solid var(--cor-acento);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilo para lista de tópicos detalhados */
@@ -153,17 +168,20 @@
             list-style: none;
             padding: 0;
         }
+
         .lista-topicos li {
-            background-color: #e6f7f7; /* Tom mais claro de verde/ciano */
+            background-color: #e6f7f7;
+            /* Tom mais claro de verde/ciano */
             border-left: 4px solid var(--cor-principal);
             margin-bottom: 8px;
             padding: 10px 15px;
             border-radius: 4px;
-            font-size: 1.05rem; /* Aumento sutil da fonte */
+            font-size: 1.05rem;
+            /* Aumento sutil da fonte */
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .lista-topicos li:hover {
             background-color: #d4eaea;
             border-left: 4px solid var(--cor-acento);
@@ -174,10 +192,10 @@
             background-color: white;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
-        
+
         .topico-detalhe h4 {
             color: var(--cor-principal);
             border-bottom: 1px solid var(--cor-acento);
@@ -188,18 +206,21 @@
         /* =======================================================
                 5. SEÇÃO DE AVALIAÇÃO (QUIZ)
                 ======================================================= */
-        #quiz-config, #quiz-content, #quiz-results {
+        #quiz-config,
+        #quiz-content,
+        #quiz-results {
             background-color: white;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         #btn-iniciar-quiz {
             background-color: var(--cor-principal);
             color: white;
             font-weight: bold;
-            padding: 12px 25px; /* Aumenta o tamanho do botão */
+            padding: 12px 25px;
+            /* Aumenta o tamanho do botão */
             font-size: 1.1rem;
             border: none;
             border-radius: 5px;
@@ -210,7 +231,7 @@
         #btn-iniciar-quiz:hover {
             background-color: #006666;
         }
-        
+
         /* Estilização das Questões e Opções (Aumento do Tamanho) */
         .question-card {
             margin-bottom: 20px;
@@ -218,58 +239,73 @@
             border: 1px solid #eee;
             border-radius: 6px;
         }
-        
+
         .question-card h4 {
-            font-size: 1.15rem; /* Aumenta a fonte da pergunta */
+            font-size: 1.15rem;
+            /* Aumenta a fonte da pergunta */
             margin-top: 0;
         }
-        
+
         .option-label {
             display: block;
             background: #f0fdfa;
-            padding: 12px 15px; /* Aumenta o tamanho da opção */
+            padding: 12px 15px;
+            /* Aumenta o tamanho da opção */
             margin-bottom: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1.05rem; /* Aumenta a fonte da opção */
+            font-size: 1.05rem;
+            /* Aumenta a fonte da opção */
             transition: background 0.2s, border-color 0.2s;
         }
-        
+
         .option-label:hover {
             background: #d4eaea;
             border-color: var(--cor-principal);
         }
-        
+
         /* Estilo para opção selecionada */
-        input[type="radio"]:checked + .option-label {
-            background: #c7ede5; /* Um verde-água mais suave */
+        input[type="radio"]:checked+.option-label {
+            background: #c7ede5;
+            /* Um verde-água mais suave */
             border-color: var(--cor-principal);
             font-weight: bold;
         }
-        
+
         /* Esconde o radio button nativo */
         input[type="radio"] {
             display: none;
         }
-        
+
         /* Estilização do Relatório */
         .feedback-item {
             border: 1px solid var(--cor-erro);
-            background-color: #ffe0e0; /* Vermelho mais suave */
+            background-color: #ffe0e0;
+            /* Vermelho mais suave */
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 6px;
         }
+
         .feedback-item h4 {
             color: var(--cor-erro);
             font-size: 1.1rem;
         }
-        .correct { color: var(--cor-sucesso); font-weight: bold; }
-        .incorrect { color: var(--cor-erro); font-weight: bold; }
+
+        .correct {
+            color: var(--cor-sucesso);
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: var(--cor-erro);
+            font-weight: bold;
+        }
 
         /* Estilo para o botão de finalizar quiz */
-        #btn-finalizar-quiz, #quiz-results button {
+        #btn-finalizar-quiz,
+        #quiz-results button {
             display: block;
             width: 100%;
             padding: 15px;
@@ -280,12 +316,12 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         #btn-finalizar-quiz {
             background-color: var(--cor-sucesso);
             color: white;
         }
-        
+
         #btn-finalizar-quiz:hover {
             background-color: #1e7e34;
         }
@@ -301,7 +337,7 @@
             padding: 10px 0;
             margin-top: 40px;
         }
-        
+
         /* Ajuste para elementos de formulário */
         .form-group label {
             font-weight: bold;
@@ -309,6 +345,7 @@
             margin-top: 15px;
             margin-bottom: 5px;
         }
+
         .form-group select {
             width: 100%;
             padding: 10px;
@@ -316,9 +353,9 @@
             border: 1px solid #ccc;
             font-size: 1rem;
         }
-
     </style>
 </head>
+
 <body>
 
     <div id="splash-screen">
@@ -335,8 +372,9 @@
 
     <div id="home-page" class="page active container">
         <h2>Áreas de Estudo 📚</h2>
-        <p>Selecione uma matéria para ver o conteúdo detalhado ou clique em '📝 Avaliação' no menu para testar seus conhecimentos.</p>
-        
+        <p>Selecione uma matéria para ver o conteúdo detalhado ou clique em '📝 Avaliação' no menu para testar seus
+            conhecimentos.</p>
+
         <div id="materias-list">
             <div class="card-materia" data-target="materia-portugues">
                 <h3>🗣️ Língua Portuguesa</h3>
@@ -357,161 +395,868 @@
 
         <div id="materia-detalhes">
             <div id="materia-portugues" class="materia-detalhe" style="display: none;">
-                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <button onclick="showPage('home-page')"
+                    style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                    Voltar para Matérias</button>
                 <h3>🗣️ Língua Portuguesa</h3>
                 <ul class="lista-topicos">
-                    <li onclick="showTopicoDetalhe('portugues-interpretacao')">Interpretação de Textos: Tema, Ideia Principal, Finalidade e Tom.</li>
-                    <li onclick="showTopicoDetalhe('portugues-ideias')">Ideias Principais: Distinção entre mensagem central e detalhes.</li>
-                    <li onclick="showTopicoDetalhe('portugues-significado')">Significado de Palavras: Sentido Denotativo e Conotativo.</li>
-                    <li onclick="showTopicoDetalhe('portugues-ortografia')">Ortografia Avançada: Mal/Mau, Mas/Mais, Porquês, Hífen e Acentuação.</li>
-                    <li onclick="showTopicoDetalhe('portugues-pontuacao')">Pontuação: Uso da Vírgula (Separação, Isolação), Ponto-e-vírgula e Dois-pontos.</li>
-                    <li onclick="showTopicoDetalhe('portugues-classes')">Classes Gramaticais: Reconhecimento e função de Substantivo, Verbo, Adjetivo e Advérbio.</li>
-                    <li onclick="showTopicoDetalhe('portugues-concordancia')">Concordância: Verbal (sujeito-verbo) e Nominal (artigo/adjetivo-substantivo).</li>
-                    <li onclick="showTopicoDetalhe('portugues-crase')">Crase: Regras de Uso e Proibições.</li>
-                    <li onclick="showTopicoDetalhe('portugues-formacao')">Formação de Palavras: Derivação (Prefixal/Sufixal) e Composição.</li>
-                    <li onclick="showTopicoDetalhe('portugues-coesao')">Coesão e Coerência Textual: Conectivos e Sentido Global.</li>
+                    <li onclick="showTopicoDetalhe('portugues-interpretacao')">Interpretação de Textos</li>
+                    <li onclick="showTopicoDetalhe('portugues-ideias')">Ideias Principais</li>
+                    <li onclick="showTopicoDetalhe('portugues-significado')">Significado de Palavras</li>
+                    <li onclick="showTopicoDetalhe('portugues-ortografia')">Ortografia</li>
+                    <li onclick="showTopicoDetalhe('portugues-pontuacao')">Pontuação</li>
+                    <li onclick="showTopicoDetalhe('portugues-classes')">Classes Gramaticais</li>
+                    <li onclick="showTopicoDetalhe('portugues-concordancia')">Concordância</li>
+                    <li onclick="showTopicoDetalhe('portugues-crase')">Crase</li>
+                    <li onclick="showTopicoDetalhe('portugues-formacao')">Formação de Palavras</li>
+                    <li onclick="showTopicoDetalhe('portugues-coesao')">Coesão e Coerência Textual</li>
                 </ul>
-                
+
                 <!-- Detalhes dos tópicos de Português -->
                 <div id="portugues-interpretacao" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Interpretação de Textos</h4>
-                    <p><strong>O que é:</strong> entender a intenção do autor e o sentido global do texto. Inclui identificar tema, ideia principal, objetivo (informar/convencer/entreter) e tom (irônico, crítico, neutro).</p>
-                    <p><strong>Como cai:</strong> questões pedem inferir ideia central, finalidade, identificar informações implícitas/ explícitas.</p>
-                    <p><strong>Dica prática:</strong> leia título + primeiro e último parágrafo; sublinhe frases que resumem cada parágrafo; responda "sobre o quê?" e "o que se diz disso?".</p>
-                    <p><strong>Exemplo:</strong> título: "Aquecimento e cidade". Pergunta: "qual a ideia principal?" — resposta: explica-se o efeito do calor nas cidades e medidas para reduzir impacto.</p>
-                </div>
-                
-                <div id="portugues-ideias" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
-                    <h4>Ideias Principais</h4>
-                    <p><strong>O que é:</strong> a mensagem central de um parágrafo ou texto. Nem tudo é ideia principal — muitos trechos são exemplos ou detalhes.</p>
-                    <p><strong>Como achar:</strong> procure a frase que responde "sobre o que é?" + "o que se diz sobre isso?". Frequentemente aparece no início ou no fim do parágrafo.</p>
-                    <p><strong>Exercício:</strong> num parágrafo que começa "Muitos jovens preferem estudar online por liberdade de horário...", a ideia principal: os jovens preferem estudar online por maior flexibilidade.</p>
-                </div>
-                
-                <div id="portugues-significado" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
-                    <h4>Significado de Palavras</h4>
-                    <p><strong>O que é:</strong> usar o contexto para interpretar palavras; diferenciar sentido literal (denotativo) do figurado (conotativo).</p>
-                    <p><strong>Dica:</strong> busque palavras ao redor, contraste, sinônimos e antônimos no próprio texto; analisar prefixos/sufixos.</p>
-                    <p><strong>Exemplo:</strong> "Ele quebrou o silêncio" — conotativo (silêncio = ambiente de ausência de fala), não literal.</p>
-                </div>
-                
-                <div id="portugues-ortografia" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
-                    <h4>Ortografia</h4>
-                    <p><strong>O que é:</strong> grafia correta das palavras.</p>
-                    <p><strong>Foco prático:</strong> pares confusos ("mas"/"mais", "mal"/"mau"), acentuação e regras do hífen.</p>
-                    <p><strong>Dica:</strong> aprenda regras básicas (por exemplo, quando usar "por que" vs "porque") e pratique com ditados.</p>
-                    <p><strong>Exemplo de erro comum:</strong> "Mau" = oposto de bom; "mal" = oposto de bem.</p>
-                </div>
-                
-                <div id="portugues-pontuacao" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
-                    <h4>Pontuação</h4>
-                    <p><strong>O que é:</strong> sinais que organizam frases e alteram sentido (vírgula, ponto, travessão, etc.).</p>
-                    <p><strong>Dicas:</strong></p>
+                    <p><strong>O que é:</strong> Entender a mensagem do autor, identificando tema, ideia principal, finalidade e tom.</p>
+                    <p><strong>Como fazer:</strong></p>
                     <ul>
-                        <li>Vírgula isola explicações: "João, meu amigo, chegou."</li>
-                        <li>Dois-pontos introduzem explicação/enumeração.</li>
-                        <li>Ponto-e-vírgula pausa maior que vírgula.</li>
+                        <li>Leia o título e o primeiro/último parágrafo para ter uma visão geral.</li>
+                        <li>Sublinhe frases que resumem cada parágrafo.</li>
+                        <li>Pergunte-se: "Qual é o assunto?" e "O que o autor quer provar?"</li>
                     </ul>
-                    <p><strong>Exercício:</strong> Reescreva: "Os alunos que estudaram passaram." → com vírgula: "Os alunos, que estudaram, passaram." (muda sentido).</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>Texto: "A poluição dos rios tem aumentado drasticamente. Isso se deve ao despejo de lixo e produtos químicos. Se não agirmos, em breve não teremos água limpa."</p>
+                    <ul>
+                        <li>Tema: Poluição dos rios.</li>
+                        <li>Ideia principal: A poluição dos rios está piorando e exige ação imediata.</li>
+                        <li>Finalidade: Alertar e conscientizar.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pratique com notícias, editoriais e textos curtos.</li>
+                        <li>Faça resumos com suas palavras.</li>
+                    </ul>
                 </div>
-                
+
+                <div id="portugues-ideias" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Ideias Principais</h4>
+                    <p><strong>O que é:</strong> A mensagem central de um texto ou parágrafo.</p>
+                    <p><strong>Como identificar:</strong></p>
+                    <ul>
+                        <li>Encontre a frase que responde: "Sobre o que é isso?" e "O que se diz sobre isso?"</li>
+                        <li>Ignore exemplos e detalhes.</li>
+                    </ul>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>"Muitas pessoas usam redes sociais para trabalho. Outras, para entretenimento. No entanto, o uso excessivo pode causar ansiedade."</p>
+                    <p>Ideia principal: O uso excessivo de redes sociais pode causar ansiedade.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Treine identificando ideias principais em parágrafos curtos.</li>
+                    </ul>
+                </div>
+
+                <div id="portugues-significado" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Significado de Palavras</h4>
+                    <p><strong>O que é:</strong> Decifrar o sentido de palavras com base no contexto.</p>
+                    <p><strong>Estratégias:</strong></p>
+                    <ul>
+                        <li>Observe palavras ao redor (sinônimos, antônimos).</li>
+                        <li>Identifique se é sentido literal (denotativo) ou figurado (conotativo).</li>
+                    </ul>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>"Ele tem um coração de pedra."</p>
+                    <p>Sentido conotativo: Insensível, sem sentimentos.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Leia textos variados e anote palavras desconhecidas.</li>
+                        <li>Use dicionários e crie flashcards.</li>
+                    </ul>
+                </div>
+
+                <div id="portugues-ortografia" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Ortografia</h4>
+                    <p><strong>O que é:</strong> A grafia correta das palavras.</p>
+                    <p><strong>Regras comuns:</strong></p>
+                    <ul>
+                        <li>Mas (oposição) vs. Mais (quantidade): "Ele estudou, mas não passou." / "Ele quer mais tempo."</li>
+                        <li>Mal (advérbio) vs. Mau (adjetivo): "Ele se comportou mal." / "Ele é um mau aluno."</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Faça ditados e listas de palavras que confunde.</li>
+                        <li>Escreva redações e revise.</li>
+                    </ul>
+                </div>
+
+                <div id="portugues-pontuacao" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Pontuação</h4>
+                    <p><strong>O que é:</strong> Usar sinais para organizar e dar sentido ao texto.</p>
+                    <p><strong>Principais sinais:</strong></p>
+                    <ul>
+                        <li>Vírgula (,): separa itens ou orações. Ex.: "João, meu amigo, chegou."</li>
+                        <li>Ponto e vírgula (;): pausa maior que a vírgula. Ex.: "Choveu muito; as ruas alagaram."</li>
+                        <li>Dois-pontos (:): introduz uma explicação. Ex.: "Ela disse: 'Não vou.'"</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Reescreva frases com pontuação diferente e veja como o sentido muda.</li>
+                    </ul>
+                </div>
+
                 <div id="portugues-classes" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Classes Gramaticais</h4>
-                    <p><strong>O que é:</strong> categorias das palavras — substantivo, adjetivo, verbo, advérbio, pronome, preposição, conjunção, interjeição, numeral, artigo.</p>
-                    <p><strong>Dica prática:</strong> identifique função na frase: quem nomeia → substantivo; ação → verbo; qualifica → adjetivo.</p>
-                    <p><strong>Exemplo:</strong> "rápido" pode ser advérbio (corre rápido) ou adjetivo (carro rápido).</p>
+                    <p><strong>O que é:</strong> Categorias das palavras conforme sua função.</p>
+                    <p><strong>Principais classes:</strong></p>
+                    <ul>
+                        <li>Substantivo: nomeia seres. Ex.: casa, Maria.</li>
+                        <li>Verbo: indica ação ou estado. Ex.: correr, ser.</li>
+                        <li>Adjetivo: qualifica. Ex.: bonito, rápido.</li>
+                        <li>Advérbio: modifica verbo, adjetivo ou outro advérbio. Ex.: rapidamente.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Analise frases identificando a classe de cada palavra.</li>
+                    </ul>
                 </div>
-                
+
                 <div id="portugues-concordancia" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Concordância</h4>
-                    <p><strong>Verbal:</strong> verbo concorda com sujeito (ex.: "Os alunos chegaram").</p>
-                    <p><strong>Nominal:</strong> adjetivo/artigo concordam em gênero e número com o substantivo ("menina bonita", "meninos cansados").</p>
-                    <p><strong>Erro comum:</strong> concordar com o objeto em vez do sujeito em frases complexas; cuidado com sujeito composto.</p>
-                    <p><strong>Exercício:</strong> "Nem eu nem ele _ (ir) _ ao jogo." → sujeito composto → "iremos".</p>
+                    <p><strong>O que é:</strong> Harmonia entre palavras em gênero e número.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Verbal: "Os alunos estudaram." (sujeito plural → verbo plural).</li>
+                        <li>Nominal: "As meninas inteligentes." (adjetivo concordando com o substantivo).</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pratique reescrevendo frases com sujeitos no plural/singular.</li>
+                    </ul>
                 </div>
-                
+
                 <div id="portugues-crase" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Crase</h4>
-                    <p><strong>O que é:</strong> fusão da preposição a com o artigo feminino a(s) → escrita com acento à/às.</p>
-                    <p><strong>Teste prático:</strong> veja se o verbo exige preposição a + o substantivo admite artigo feminino.</p>
-                    <p><strong>Exemplo:</strong> "Vou à escola." (vou a + a escola). Não se usa crase antes de verbo: "Vou a correr" (sem crase).</p>
+                    <p><strong>O que é:</strong> Fusão da preposição a com o artigo a(s).</p>
+                    <p><strong>Quando usar:</strong></p>
+                    <ul>
+                        <li>Antes de palavras femininas. Ex.: "Fui à escola." (a + a escola).</li>
+                        <li>Não use antes de verbos ou palavras masculinas.</li>
+                    </ul>
+                    <p><strong>Teste prático:</strong> Substitua por "ao" (masculino). Se fizer sentido, use crase.</p>
+                    <p>"Vou ao cinema." (masculino) → "Vou à escola." (feminino).</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Faça exercícios com o teste de substituição.</li>
+                    </ul>
                 </div>
-                
+
                 <div id="portugues-formacao" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Formação de Palavras</h4>
-                    <p><strong>Processos:</strong> derivação (prefixo/sufixo: infeliz = in- + feliz) e composição (guarda-chuva = guarda + chuva).</p>
-                    <p><strong>Dica:</strong> decompor palavras ajuda a entender sentido e grafia.</p>
+                    <p><strong>O que é:</strong> Como as palavras são construídas.</p>
+                    <p><strong>Processos:</strong></p>
+                    <ul>
+                        <li>Derivação: acrescenta prefixo ou sufixo. Ex.: infeliz (in- + feliz).</li>
+                        <li>Composição: une duas palavras. Ex.: guarda-chuva.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Quebre palavras em partes e estude prefixos/sufixos comuns.</li>
+                    </ul>
                 </div>
-                
+
                 <div id="portugues-coesao" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Coesão e Coerência Textual</h4>
-                    <p><strong>Coesão:</strong> elementos que ligam sentenças (pronomes, conectivos, elipses).</p>
-                    <p><strong>Coerência:</strong> sentido lógico global. Um texto pode ser coeso (ligações corretas) e ainda assim incoerente (ideias sem sentido).</p>
-                    <p><strong>Dica:</strong> verifique referências (a que se refere "ele"?), mantenha sequência lógica de ideias.</p>
+                    <p><strong>O que é:</strong></p>
+                    <ul>
+                        <li>Coesão: conexão entre frases (pronomes, conjunções).</li>
+                        <li>Coerência: sentido lógico do texto.</li>
+                    </ul>
+                    <p><strong>Exemplo de incoerência:</strong></p>
+                    <p>"O sol é quente. Por isso, estou com frio." (sem lógica).</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Reescreva textos truncados, usando conectivos (ex.: portanto, além disso).</li>
+                    </ul>
                 </div>
             </div>
-            
+
             <!-- Estrutura similar para as outras matérias -->
             <div id="materia-matematica" class="materia-detalhe" style="display: none;">
-                <button onclick="showPage('home-page')" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Matérias</button>
+                <button onclick="showPage('home-page')"
+                    style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                    Voltar para Matérias</button>
                 <h3>🧮 Matemática</h3>
                 <ul class="lista-topicos">
-                    <li onclick="showTopicoDetalhe('matematica-operacoes')">Quatro Operações: Propriedades e Técnicas de Cálculo.</li>
-                    <li onclick="showTopicoDetalhe('matematica-mmc-mdc')">MMC/MDC: Múltiplos e Divisores.</li>
-                    <li onclick="showTopicoDetalhe('matematica-fracoes')">Frações e Decimais: Simplificação, Equivalência e Operações.</li>
-                    <li onclick="showTopicoDetalhe('matematica-porcentagem')">Porcentagem: Cálculo de Aumentos/Descontos e Proporcionalidades.</li>
-                    <li onclick="showTopicoDetalhe('matematica-regra-tres')">Regra de Três: Simples (Direta/Inversa) e Composta.</li>
-                    <li onclick="showTopicoDetalhe('matematica-expressoes')">Expressões Numéricas: Ordem de Operações (PEMDAS/Parênteses, Expoentes, Multiplicação...).</li>
-                    <li onclick="showTopicoDetalhe('matematica-equacoes')">Equações Simples: Resolução de Equações do 1º Grau.</li>
-                    <li onclick="showTopicoDetalhe('matematica-geometria')">Geometria: Área, Perímetro (Retângulo, Triângulo, Círculo) e Volume (Sólidos básicos).</li>
-                    <li onclick="showTopicoDetalhe('matematica-raciocinio')">Raciocínio Lógico: Sequências Numéricas e Padrões.</li>
+                    <li onclick="showTopicoDetalhe('matematica-operacoes')">Quatro Operações</li>
+                    <li onclick="showTopicoDetalhe('matematica-mmc-mdc')">Múltiplos e Divisores</li>
+                    <li onclick="showTopicoDetalhe('matematica-fracoes')">Frações e Decimais</li>
+                    <li onclick="showTopicoDetalhe('matematica-porcentagem')">Porcentagem</li>
+                    <li onclick="showTopicoDetalhe('matematica-regra-tres')">Regra de Três</li>
+                    <li onclick="showTopicoDetalhe('matematica-expressoes')">Expressões Numéricas</li>
+                    <li onclick="showTopicoDetalhe('matematica-equacoes')">Equações Simples</li>
+                    <li onclick="showTopicoDetalhe('matematica-geometria')">Área, Perímetro e Volume</li>
+                    <li onclick="showTopicoDetalhe('matematica-figuras')">Figuras Geométricas</li>
+                    <li onclick="showTopicoDetalhe('matematica-grandezas')">Grandezas e Medidas</li>
+                    <li onclick="showTopicoDetalhe('matematica-graficos')">Gráficos e Tabelas</li>
+                    <li onclick="showTopicoDetalhe('matematica-raciocinio')">Raciocínio Lógico</li>
                 </ul>
-                
+
                 <!-- Detalhes dos tópicos de Matemática -->
                 <div id="matematica-operacoes" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Quatro Operações</h4>
-                    <p><strong>O que é:</strong> adição, subtração, multiplicação, divisão.</p>
-                    <p><strong>Propriedades úteis:</strong> comutativa (a+b=b+a; a·b = b·a), distributiva (a·(b+c)=a·b+a·c).</p>
-                    <p><strong>Dica:</strong> dominar tabuada e técnicas de divisão.</p>
+                    <p><strong>O que são:</strong> Adição, subtração, multiplicação e divisão.</p>
+                    <p><strong>Propriedades:</strong></p>
+                    <ul>
+                        <li>Comutativa: a + b = b + a.</li>
+                        <li>Distributiva: a × (b + c) = a×b + a×c.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pratique cálculos mentais e problemas do cotidiano (ex.: troco, divisão de gastos).</li>
+                    </ul>
                 </div>
-                
+
                 <div id="matematica-mmc-mdc" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
-                    <h4>Múltiplos e divisores; MMC e MDC</h4>
-                    <p><strong>Múltiplos:</strong> resultados de multiplicar um número por inteiros (múltiplos de 6: 6, 12, 18...).</p>
-                    <p><strong>Divisores:</strong> números que dividem sem resto (divisores de 6: 1,2,3,6).</p>
-                    <p><strong>MMC:</strong> menor múltiplo comum; MDC: maior divisor comum.</p>
-                    <p><strong>Exemplo rápido (MDC de 12 e 18):</strong></p>
-                    <p>Divisores de 12: 1,2,3,4,6,12</p>
-                    <p>Divisores de 18: 1,2,3,6,9,18</p>
-                    <p>→ MDC = 6.</p>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Múltiplos e Divisores</h4>
+                    <p><strong>O que são:</strong></p>
+                    <ul>
+                        <li>Múltiplos: resultados da multiplicação. Ex.: Múltiplos de 3: 3, 6, 9...</li>
+                        <li>Divisores: números que dividem exatamente. Ex.: Divisores de 10: 1, 2, 5, 10.</li>
+                    </ul>
+                    <p><strong>MMC e MDC:</strong></p>
+                    <ul>
+                        <li>MMC: menor múltiplo comum. Ex.: MMC(4,6) = 12.</li>
+                        <li>MDC: maior divisor comum. Ex.: MDC(8,12) = 4.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use listas e exercícios com números pequenos.</li>
+                    </ul>
                 </div>
-                
-                <!-- Adicione os outros tópicos de Matemática seguindo o mesmo padrão -->
+
                 <div id="matematica-fracoes" class="topico-detalhe" style="display: none;">
-                    <button onclick="hideTopicoDetalhe()" style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr; Voltar para Tópicos</button>
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
                     <h4>Frações e Decimais</h4>
-                    <p>Conteúdo detalhado sobre frações e decimais...</p>
+                    <p><strong>O que são:</strong></p>
+                    <ul>
+                        <li>Frações: parte de um todo. Ex.: 1/2 = 0,5.</li>
+                    </ul>
+                    <p><strong>Operações:</strong></p>
+                    <ul>
+                        <li>Soma com denominadores iguais: 1/4 + 2/4 = 3/4.</li>
+                        <li>Soma com denominadores diferentes: 1/2 + 1/4 = 2/4 + 1/4 = 3/4.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use objetos (ex.: pizza, barras de chocolate) para visualizar.</li>
+                    </ul>
                 </div>
-                
-                <!-- Continue adicionando os outros tópicos -->
+
+                <div id="matematica-porcentagem" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Porcentagem</h4>
+                    <p><strong>O que é:</strong> Representação de partes em 100.</p>
+                    <p><strong>Cálculo:</strong></p>
+                    <ul>
+                        <li>20% de 50 = 50 × 20/100 = 10.</li>
+                    </ul>
+                    <p><strong>Aumentos/descontos:</strong></p>
+                    <ul>
+                        <li>Aumento de 10%: multiplique por 1,10.</li>
+                        <li>Desconto de 10%: multiplique por 0,90.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Calcule descontos em compras e aumentos salariais.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-regra-tres" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Regra de Três</h4>
+                    <p><strong>O que é:</strong> Resolver proporções.</p>
+                    <p><strong>Exemplo (direta):</strong></p>
+                    <p>Se 2 kg custam R$ 10, quanto custam 5 kg?</p>
+                    <p>2/10 = 5/x → x = (10×5)/2 = 25.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pratique com receitas (aumentando proporções) e mapas (escala).</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-expressoes" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Expressões Numéricas</h4>
+                    <p><strong>Ordem de operações:</strong></p>
+                    <ol>
+                        <li>Parênteses</li>
+                        <li>Expoentes</li>
+                        <li>Multiplicação/Divisão (esquerda para direita)</li>
+                        <li>Adição/Subtração</li>
+                    </ol>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>3 + 4 × 2 = 3 + 8 = 11 (não 14!).</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Resolva expressões passo a passo.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-equacoes" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Equações Simples</h4>
+                    <p><strong>O que são:</strong> Igualdades com incógnitas.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>2x + 3 = 7 → 2x = 4 → x = 2.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Transforme problemas em equações. Ex.: "Tenho R$ 20 e quero comprar 2 livros. Quanto custa cada um?" → 2x = 20.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-geometria" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Área, Perímetro e Volume</h4>
+                    <p><strong>Fórmulas:</strong></p>
+                    <ul>
+                        <li>Retângulo: área = base × altura; perímetro = 2×(base+altura).</li>
+                        <li>Círculo: área = π×r²; perímetro = 2×π×r.</li>
+                        <li>Cubo: volume = lado³.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Meça objetos reais (ex.: mesa, lata) e calcule.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-figuras" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Figuras Geométricas</h4>
+                    <p><strong>O que são:</strong> Formas com propriedades específicas.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Triângulos: equilátero (3 lados iguais), isósceles (2 lados iguais).</li>
+                        <li>Quadriláteros: quadrado, retângulo, trapézio.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Desenhe e classifique figuras.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-grandezas" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Grandezas e Medidas</h4>
+                    <p><strong>O que são:</strong> Unidades para medir comprimento, massa, capacidade.</p>
+                    <p><strong>Conversões:</strong></p>
+                    <ul>
+                        <li>1 m = 100 cm; 1 kg = 1000 g.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pratique convertendo receitas ou medidas de móveis.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-graficos" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Gráficos e Tabelas</h4>
+                    <p><strong>O que são:</strong> Representações visuais de dados.</p>
+                    <p><strong>Tipos:</strong></p>
+                    <ul>
+                        <li>Gráfico de barras: compara quantidades.</li>
+                        <li>Gráfico de pizza: mostra partes de um todo.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Interprete gráficos de notícias e relatórios.</li>
+                    </ul>
+                </div>
+
+                <div id="matematica-raciocinio" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Raciocínio Lógico</h4>
+                    <p><strong>O que é:</strong> Resolver problemas com lógica.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>"Se Ana é mais alta que João e João é mais alto que Maria, então Ana é mais alta que Maria."</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Resolva quebra-cabeças e sequências (ex.: 2, 4, 6, 8, ?).</li>
+                    </ul>
+                </div>
             </div>
-            
-            <!-- E assim por diante para as outras matérias... -->
+
+            <!-- CIÊNCIAS -->
+            <div id="materia-ciencias" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')"
+                    style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                    Voltar para Matérias</button>
+                <h3>🔬 Ciências da Natureza</h3>
+                <ul class="lista-topicos">
+                    <li onclick="showTopicoDetalhe('ciencias-corpo')">Corpo Humano e Saúde</li>
+                    <li onclick="showTopicoDetalhe('ciencias-sistemas')">Sistemas do Corpo</li>
+                    <li onclick="showTopicoDetalhe('ciencias-alimentacao')">Alimentação e Higiene</li>
+                    <li onclick="showTopicoDetalhe('ciencias-seres')">Seres Vivos e Ecossistemas</li>
+                    <li onclick="showTopicoDetalhe('ciencias-meio')">Meio Ambiente</li>
+                    <li onclick="showTopicoDetalhe('ciencias-materia')">Matéria e Energia</li>
+                    <li onclick="showTopicoDetalhe('ciencias-terra')">Terra e Universo</li>
+                    <li onclick="showTopicoDetalhe('ciencias-movimentos')">Movimentos da Terra</li>
+                    <li onclick="showTopicoDetalhe('ciencias-lua')">Fases da Lua</li>
+                </ul>
+
+                <!-- Detalhes dos tópicos de Ciências -->
+                <div id="ciencias-corpo" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Corpo Humano e Saúde</h4>
+                    <p><strong>O que é:</strong> Estrutura básica do corpo e cuidados.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Órgãos: coração, pulmões, cérebro.</li>
+                        <li>Cuidados: vacinas, alimentação balanceada.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use modelos ou desenhos do corpo.</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-sistemas" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Sistemas do Corpo</h4>
+                    <p><strong>O que são:</strong> Conjuntos de órgãos com funções específicas.</p>
+                    <p><strong>Principais sistemas:</strong></p>
+                    <ul>
+                        <li>Digestório: digere alimentos.</li>
+                        <li>Respiratório: troca gases (O₂ e CO₂).</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Associe cada sistema a uma função (ex.: respiratório → pulmões).</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-alimentacao" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Alimentação e Higiene</h4>
+                    <p><strong>O que é:</strong> Nutrientes essenciais e práticas de limpeza.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Nutrientes: carboidratos (energia), proteínas (musculatura).</li>
+                        <li>Higiene: lavar as mãos para evitar doenças.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Monte um prato colorido com grupos alimentares.</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-seres" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Seres Vivos e Ecossistemas</h4>
+                    <p><strong>O que são:</strong> Organismos e seu ambiente.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>Cadeia alimentar: planta → coelho → lobo.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Observe a natureza e desenhe cadeias alimentares.</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-meio" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Meio Ambiente</h4>
+                    <p><strong>O que é:</strong> Impactos humanos e conservação.</p>
+                    <p><strong>Problemas:</strong> poluição, desmatamento.</p>
+                    <p><strong>Soluções:</strong> reciclagem, energias renováveis.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Participe de coleta seletiva ou cultive uma horta.</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-materia" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Matéria e Energia</h4>
+                    <p><strong>O que são:</strong> Estados da matéria e transformações.</p>
+                    <p><strong>Estados:</strong> sólido, líquido, gasoso.</p>
+                    <p><strong>Transformações:</strong> fusão (sólido → líquido).</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Experimente derreter gelo (fusão) ou ferver água (evaporação).</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-terra" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Terra e Universo</h4>
+                    <p><strong>O que é:</strong> Estrutura da Terra e corpos celestes.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Camadas da Terra: crosta, manto, núcleo.</li>
+                        <li>Sistema solar: Sol, planetas, luas.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use modelos ou simulações online.</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-movimentos" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Movimentos da Terra</h4>
+                    <p><strong>O que são:</strong> Rotação e translação.</p>
+                    <ul>
+                        <li>Rotação: 24 horas → dia e noite.</li>
+                        <li>Translação: 365 dias → estações do ano.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use uma lanterna e uma bola para simular.</li>
+                    </ul>
+                </div>
+
+                <div id="ciencias-lua" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Fases da Lua</h4>
+                    <p><strong>O que são:</strong> Mudanças na aparência da Lua.</p>
+                    <p><strong>Ciclo:</strong> nova, crescente, cheia, minguante.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Observe a Lua por um mês e registre.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HISTÓRIA -->
+            <div id="materia-historia" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')"
+                    style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                    Voltar para Matérias</button>
+                <h3>📜 História</h3>
+                <ul class="lista-topicos">
+                    <li onclick="showTopicoDetalhe('historia-brasil')">Brasil Colônia, Império e República</li>
+                    <li onclick="showTopicoDetalhe('historia-cultura')">Cultura Indígena e Africana</li>
+                    <li onclick="showTopicoDetalhe('historia-independencia')">Independência e Proclamação da República</li>
+                    <li onclick="showTopicoDetalhe('historia-constituicao')">Constituição e Cidadania</li>
+                    <li onclick="showTopicoDetalhe('historia-antigas')">Civilizações Antigas</li>
+                    <li onclick="showTopicoDetalhe('historia-idades')">Idade Média, Moderna e Contemporânea</li>
+                    <li onclick="showTopicoDetalhe('historia-ditadura')">Ditadura Militar e Redemocratização</li>
+                </ul>
+
+                <!-- Detalhes dos tópicos de História -->
+                <div id="historia-brasil" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Brasil Colônia, Império e República</h4>
+                    <p><strong>Períodos:</strong></p>
+                    <ul>
+                        <li>Colônia (1500–1822): exploração de recursos, escravidão.</li>
+                        <li>Império (1822–1889): monarquia com D. Pedro I e II.</li>
+                        <li>República (1889–hoje): governo eleito.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Crie uma linha do tempo.</li>
+                    </ul>
+                </div>
+
+                <div id="historia-cultura" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Cultura Indígena e Africana</h4>
+                    <p><strong>O que é:</strong> Contribuições para a cultura brasileira.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Indígenas: palavras (mandioca), técnicas.</li>
+                        <li>Africanos: culinária (acarajé), música (samba).</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pesquise pratos típicos e suas origens.</li>
+                    </ul>
+                </div>
+
+                <div id="historia-independencia" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Independência e Proclamação da República</h4>
+                    <p><strong>Eventos:</strong></p>
+                    <ul>
+                        <li>Independência (1822): "Grito do Ipiranga" por D. Pedro I.</li>
+                        <li>República (1889): fim da monarquia.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Assista a vídeos ou leia documentos históricos.</li>
+                    </ul>
+                </div>
+
+                <div id="historia-constituicao" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Constituição e Cidadania</h4>
+                    <p><strong>O que é:</strong> Leis que regem o país e direitos/deveres.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>Constituição de 1988: garantiu direitos sociais.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Debata direitos do cidadão em sala de aula.</li>
+                    </ul>
+                </div>
+
+                <div id="historia-antigas" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Civilizações Antigas</h4>
+                    <p><strong>O que são:</strong> Sociedades que influenciaram o mundo.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Egito: pirâmides, escrita hieróglifa.</li>
+                        <li>Roma: leis, arquitetura.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Visite museus ou use recursos virtuais.</li>
+                    </ul>
+                </div>
+
+                <div id="historia-idades" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Idade Média, Moderna e Contemporânea</h4>
+                    <p><strong>Períodos:</strong></p>
+                    <ul>
+                        <li>Idade Média: feudalismo, cavaleiros.</li>
+                        <li>Idade Moderna: navegações, Renascimento.</li>
+                        <li>Idade Contemporânea: guerras mundiais, globalização.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Relacione cada era a invenções (ex.: imprensa → Idade Moderna).</li>
+                    </ul>
+                </div>
+
+                <div id="historia-ditadura" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Ditadura Militar e Redemocratização</h4>
+                    <p><strong>O que é:</strong> Período autoritário (1964–1985) e retorno à democracia.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <ul>
+                        <li>Ditadura: censura, repressão.</li>
+                        <li>Redemocratização: Constituição de 1988.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Entreviste familiares que viveram na época.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GEOGRAFIA -->
+            <div id="materia-geografia" class="materia-detalhe" style="display: none;">
+                <button onclick="showPage('home-page')"
+                    style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                    Voltar para Matérias</button>
+                <h3>🌎 Geografia</h3>
+                <ul class="lista-topicos">
+                    <li onclick="showTopicoDetalhe('geografia-pontos')">Pontos Cardeais</li>
+                    <li onclick="showTopicoDetalhe('geografia-cartografia')">Cartografia</li>
+                    <li onclick="showTopicoDetalhe('geografia-regioes')">Regiões do Brasil</li>
+                    <li onclick="showTopicoDetalhe('geografia-populacao')">População e Migrações</li>
+                    <li onclick="showTopicoDetalhe('geografia-economia')">Atividades Econômicas</li>
+                    <li onclick="showTopicoDetalhe('geografia-continentes')">Continentes e Países</li>
+                    <li onclick="showTopicoDetalhe('geografia-preservacao')">Meio Ambiente e Preservação</li>
+                </ul>
+
+                <!-- Detalhes dos tópicos de Geografia -->
+                <div id="geografia-pontos" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Pontos Cardeais</h4>
+                    <p><strong>O que são:</strong> Direções de orientação (N, S, L, O).</p>
+                    <p><strong>Como usar:</strong></p>
+                    <p>"O sol nasce a leste (L) e se põe a oeste (O)."</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use uma bússola ou app no celular.</li>
+                    </ul>
+                </div>
+
+                <div id="geografia-cartografia" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Cartografia</h4>
+                    <p><strong>O que é:</strong> Ciência dos mapas.</p>
+                    <p><strong>Elementos:</strong> escala, legenda, coordenadas.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Desenhe um mapa da sua escola ou bairro.</li>
+                    </ul>
+                </div>
+
+                <div id="geografia-regioes" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Regiões do Brasil</h4>
+                    <p><strong>O que são:</strong> Divisões com características próprias.</p>
+                    <p><strong>Exemplos:</strong></p>
+                    <ul>
+                        <li>Norte: Floresta Amazônica.</li>
+                        <li>Sudeste: industrialização.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Crie um mapa mental com produtos típicos de cada região.</li>
+                    </ul>
+                </div>
+
+                <div id="geografia-populacao" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>População e Migrações</h4>
+                    <p><strong>O que é:</strong> Distribuição e movimentos populacionais.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>Êxodo rural: migração do campo para a cidade.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Pesquise sobre imigrantes na sua região.</li>
+                    </ul>
+                </div>
+
+                <div id="geografia-economia" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Atividades Econômicas</h4>
+                    <p><strong>O que são:</strong> Setores de produção.</p>
+                    <ul>
+                        <li>Primário: agricultura.</li>
+                        <li>Secundário: indústria.</li>
+                        <li>Terciário: serviços.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Liste empregos por setor.</li>
+                    </ul>
+                </div>
+
+                <div id="geografia-continentes" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Continentes e Países</h4>
+                    <p><strong>O que são:</strong> Grandes massas de terra e nações.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <p>América: Brasil, EUA, Argentina.</p>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Use quebra-cabeças de mapas.</li>
+                    </ul>
+                </div>
+
+                <div id="geografia-preservacao" class="topico-detalhe" style="display: none;">
+                    <button onclick="hideTopicoDetalhe()"
+                        style="margin-bottom: 15px; background: #ccc; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">&larr;
+                        Voltar para Tópicos</button>
+                    <h4>Meio Ambiente e Preservação</h4>
+                    <p><strong>O que é:</strong> Problemas ambientais e soluções.</p>
+                    <p><strong>Exemplo:</strong></p>
+                    <ul>
+                        <li>Problema: poluição plástica.</li>
+                        <li>Solução: reduzir, reutilizar, reciclar.</li>
+                    </ul>
+                    <p><strong>Como aprender:</strong></p>
+                    <ul>
+                        <li>Participe de mutirões de limpeza.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    
+
     <div id="quiz-page" class="page container">
         <h2>Avaliação: Teste Seus Conhecimentos 🧠</h2>
 
@@ -543,7 +1288,7 @@
             <h3>Quiz de Preparação</h3>
             <p>Questão <span id="current-question-number">1</span> de 15</p>
             <div id="questions-container">
-                </div>
+            </div>
             <button id="btn-finalizar-quiz" style="display: none;">Finalizar Quiz e Ver Resultado ✅</button>
         </div>
 
@@ -551,14 +1296,14 @@
             <h3>Relatório de Desempenho 📊</h3>
             <p>Total de Acertos: <span id="total-acertos" class="correct"></span> / 15</p>
             <p>Total de Erros: <span id="total-erros" class="incorrect"></span> / 15</p>
-            
+
             <h4>Desempenho por Disciplina:</h4>
             <div id="desempenho-disciplinas">
-                </div>
+            </div>
 
             <h4>Revisão e Feedback:</h4>
             <div id="feedback-revisao">
-                </div>
+            </div>
             <button onclick="showPage('quiz-page')">Fazer Novo Teste 🔄</button>
         </div>
     </div>
@@ -574,258 +1319,303 @@
         const QUESTION_COUNT = 15;
         const questionsDB = [
             // PORTUGUÊS - FÁCIL
-            { id: 1, disciplina: 'portugues', nivel: 'facil', texto: 'Qual das palavras abaixo está escrita corretamente?', 
-                opcoes: ['Excessão', 'Exceção', 'Excessão', 'Excessão'], 
-                resposta_correta: 'Exceção', 
-                explicacao: 'A forma correta é "exceção", com "ç". As outras formas apresentam erro ortográfico.' 
+            {
+                id: 1, disciplina: 'portugues', nivel: 'facil', texto: 'Qual das palavras abaixo está escrita corretamente?',
+                opcoes: ['Excessão', 'Exceção', 'Excessão', 'Excessão'],
+                resposta_correta: 'Exceção',
+                explicacao: 'A forma correta é "exceção", com "ç". As outras formas apresentam erro ortográfico.'
             },
-            { id: 2, disciplina: 'portugues', nivel: 'facil', texto: 'Qual é o sujeito da frase: "As crianças brincam no parque."?', 
-                opcoes: ['brincam', 'no parque', 'As crianças', 'parque'], 
-                resposta_correta: 'As crianças', 
-                explicacao: 'O sujeito é "As crianças", pois é quem pratica a ação de brincar.' 
+            {
+                id: 2, disciplina: 'portugues', nivel: 'facil', texto: 'Qual é o sujeito da frase: "As crianças brincam no parque."?',
+                opcoes: ['brincam', 'no parque', 'As crianças', 'parque'],
+                resposta_correta: 'As crianças',
+                explicacao: 'O sujeito é "As crianças", pois é quem pratica a ação de brincar.'
             },
-            { id: 3, disciplina: 'portugues', nivel: 'facil', texto: 'Qual destas palavras é um substantivo?', 
-                opcoes: ['correr', 'bonito', 'casa', 'rapidamente'], 
-                resposta_correta: 'casa', 
-                explicacao: '"Casa" é um substantivo, pois nomeia um ser. "Correr" é verbo, "bonito" é adjetivo e "rapidamente" é advérbio.' 
+            {
+                id: 3, disciplina: 'portugues', nivel: 'facil', texto: 'Qual destas palavras é um substantivo?',
+                opcoes: ['correr', 'bonito', 'casa', 'rapidamente'],
+                resposta_correta: 'casa',
+                explicacao: '"Casa" é um substantivo, pois nomeia um ser. "Correr" é verbo, "bonito" é adjetivo e "rapidamente" é advérbio.'
             },
-            
+
             // PORTUGUÊS - MÉDIO
-            { id: 4, disciplina: 'portugues', nivel: 'medio', texto: 'Assinale a alternativa em que o uso da vírgula está correto:', 
-                opcoes: ['Maria, comprou pão, leite e queijo.', 'Maria comprou, pão leite e queijo.', 'Maria comprou pão, leite, e queijo.', 'Maria comprou pão, leite e queijo.'], 
-                resposta_correta: 'Maria comprou pão, leite e queijo.', 
-                explicacao: 'A vírgula deve separar os elementos de uma enumeração, exceto antes do "e" que une os dois últimos elementos.' 
+            {
+                id: 4, disciplina: 'portugues', nivel: 'medio', texto: 'Assinale a alternativa em que o uso da vírgula está correto:',
+                opcoes: ['Maria, comprou pão, leite e queijo.', 'Maria comprou, pão leite e queijo.', 'Maria comprou pão, leite, e queijo.', 'Maria comprou pão, leite e queijo.'],
+                resposta_correta: 'Maria comprou pão, leite e queijo.',
+                explicacao: 'A vírgula deve separar os elementos de uma enumeração, exceto antes do "e" que une os dois últimos elementos.'
             },
-            { id: 5, disciplina: 'portugues', nivel: 'medio', texto: 'Qual das frases abaixo apresenta uma oração subordinada adverbial?', 
-                opcoes: ['O livro que comprei é interessante.', 'Quando cheguei, todos já tinham saído.', 'A menina, que é minha prima, viajou.', 'Ele disse que viria amanhã.'], 
-                resposta_correta: 'Quando cheguei, todos já tinham saído.', 
-                explicacao: '"Quando cheguei" é uma oração subordinada adverbial temporal, pois indica o momento em que a ação principal ocorreu.' 
+            {
+                id: 5, disciplina: 'portugues', nivel: 'medio', texto: 'Qual das frases abaixo apresenta uma oração subordinada adverbial?',
+                opcoes: ['O livro que comprei é interessante.', 'Quando cheguei, todos já tinham saído.', 'A menina, que é minha prima, viajou.', 'Ele disse que viria amanhã.'],
+                resposta_correta: 'Quando cheguei, todos já tinham saído.',
+                explicacao: '"Quando cheguei" é uma oração subordinada adverbial temporal, pois indica o momento em que a ação principal ocorreu.'
             },
-            { id: 6, disciplina: 'portugues', nivel: 'medio', texto: 'Em qual alternativa há erro de concordância verbal?', 
-                opcoes: ['Faz dois anos que não os vejo.', 'Houveram muitos problemas na reunião.', 'Devem existir várias soluções para isso.', 'Vai haver festa no sábado.'], 
-                resposta_correta: 'Houveram muitos problemas na reunião.', 
-                explicacao: 'Com o verbo "haver" no sentido de "existir", deve-se usar sempre a 3ª pessoa do singular: "Houve muitos problemas na reunião."' 
+            {
+                id: 6, disciplina: 'portugues', nivel: 'medio', texto: 'Em qual alternativa há erro de concordância verbal?',
+                opcoes: ['Faz dois anos que não os vejo.', 'Houveram muitos problemas na reunião.', 'Devem existir várias soluções para isso.', 'Vai haver festa no sábado.'],
+                resposta_correta: 'Houveram muitos problemas na reunião.',
+                explicacao: 'Com o verbo "haver" no sentido de "existir", deve-se usar sempre a 3ª pessoa do singular: "Houve muitos problemas na reunião."'
             },
-            
+
             // PORTUGUÊS - DIFÍCIL
-            { id: 7, disciplina: 'portugues', nivel: 'dificil', texto: 'Assinale a alternativa em que o uso do acento indicativo de crase está correto:', 
-                opcoes: ['Refiro-me àquele episódio.', 'Vou à Paris no próximo mês.', 'Ele chegou à meia-noite.', 'Entreguei o documento à secretária.'], 
-                resposta_correta: 'Refiro-me àquele episódio.', 
-                explicacao: 'Há crase antes de "aquele" porque temos a preposição "a" (exigida por "refiro-me") + o artigo "a" (presente em "aquele").' 
+            {
+                id: 7, disciplina: 'portugues', nivel: 'dificil', texto: 'Assinale a alternativa em que o uso do acento indicativo de crase está correto:',
+                opcoes: ['Refiro-me àquele episódio.', 'Vou à Paris no próximo mês.', 'Ele chegou à meia-noite.', 'Entreguei o documento à secretária.'],
+                resposta_correta: 'Refiro-me àquele episódio.',
+                explicacao: 'Há crase antes de "aquele" porque temos a preposição "a" (exigida por "refiro-me") + o artigo "a" (presente em "aquele").'
             },
-            { id: 8, disciplina: 'portugues', nivel: 'dificil', texto: 'Qual das alternativas apresenta um exemplo de polissemia?', 
-                opcoes: ['O banco da praça é de madeira. / Preciso ir ao banco.', 'O time marcou um gol. / Ele usou um gol para viajar.', 'A luz do sol é forte. / A luz elétrica queimou.', 'O rato roeu a roupa. / O rato do computador quebrou.'], 
-                resposta_correta: 'O banco da praça é de madeira. / Preciso ir ao banco.', 
-                explicacao: 'Polissemia é quando uma mesma palavra tem significados diferentes. "Banco" pode significar assento ou instituição financeira.' 
+            {
+                id: 8, disciplina: 'portugues', nivel: 'dificil', texto: 'Qual das alternativas apresenta um exemplo de polissemia?',
+                opcoes: ['O banco da praça é de madeira. / Preciso ir ao banco.', 'O time marcou um gol. / Ele usou um gol para viajar.', 'A luz do sol é forte. / A luz elétrica queimou.', 'O rato roeu a roupa. / O rato do computador quebrou.'],
+                resposta_correta: 'O banco da praça é de madeira. / Preciso ir ao banco.',
+                explicacao: 'Polissemia é quando uma mesma palavra tem significados diferentes. "Banco" pode significar assento ou instituição financeira.'
             },
-            { id: 9, disciplina: 'portugues', nivel: 'dificil', texto: 'Qual figura de linguagem predomina no trecho: "O tempo é um rio que corre sem parar."?', 
-                opcoes: ['Metáfora', 'Comparação', 'Hipérbole', 'Personificação'], 
-                resposta_correta: 'Metáfora', 
-                explicacao: 'Há uma metáfora, pois o tempo está sendo comparado implicitamente a um rio, sem usar termos comparativos explícitos como "como" ou "parecido com".' 
+            {
+                id: 9, disciplina: 'portugues', nivel: 'dificil', texto: 'Qual figura de linguagem predomina no trecho: "O tempo é um rio que corre sem parar."?',
+                opcoes: ['Metáfora', 'Comparação', 'Hipérbole', 'Personificação'],
+                resposta_correta: 'Metáfora',
+                explicacao: 'Há uma metáfora, pois o tempo está sendo comparado implicitamente a um rio, sem usar termos comparativos explícitos como "como" ou "parecido com".'
             },
-            
+
             // MATEMÁTICA - FÁCIL
-            { id: 10, disciplina: 'matematica', nivel: 'facil', texto: 'Qual é o resultado de 15 + 27?', 
-                opcoes: ['32', '42', '38', '52'], 
-                resposta_correta: '42', 
-                explicacao: '15 + 27 = 42. Some as unidades: 5+7=12 (escreve 2 e vai 1). Some as dezenas: 1+2+1=4. Resultado: 42.' 
+            {
+                id: 10, disciplina: 'matematica', nivel: 'facil', texto: 'Qual é o resultado de 15 + 27?',
+                opcoes: ['32', '42', '38', '52'],
+                resposta_correta: '42',
+                explicacao: '15 + 27 = 42. Some as unidades: 5+7=12 (escreve 2 e vai 1). Some as dezenas: 1+2+1=4. Resultado: 42.'
             },
-            { id: 11, disciplina: 'matematica', nivel: 'facil', texto: 'Qual é o dobro de 24?', 
-                opcoes: ['12', '48', '36', '26'], 
-                resposta_correta: '48', 
-                explicacao: 'O dobro de um número é obtido multiplicando-o por 2. 24 × 2 = 48.' 
+            {
+                id: 11, disciplina: 'matematica', nivel: 'facil', texto: 'Qual é o dobro de 24?',
+                opcoes: ['12', '48', '36', '26'],
+                resposta_correta: '48',
+                explicacao: 'O dobro de um número é obtido multiplicando-o por 2. 24 × 2 = 48.'
             },
-            { id: 12, disciplina: 'matematica', nivel: 'facil', texto: 'Qual fração é equivalente a 1/2?', 
-                opcoes: ['2/4', '3/8', '1/4', '2/3'], 
-                resposta_correta: '2/4', 
-                explicacao: '2/4 é equivalente a 1/2, pois ambas representam a metade de um todo. Podemos simplificar 2/4 dividindo numerador e denominador por 2.' 
+            {
+                id: 12, disciplina: 'matematica', nivel: 'facil', texto: 'Qual fração é equivalente a 1/2?',
+                opcoes: ['2/4', '3/8', '1/4', '2/3'],
+                resposta_correta: '2/4',
+                explicacao: '2/4 é equivalente a 1/2, pois ambas representam a metade de um todo. Podemos simplificar 2/4 dividindo numerador e denominador por 2.'
             },
-            
+
             // MATEMÁTICA - MÉDIO
-            { id: 13, disciplina: 'matematica', nivel: 'medio', texto: 'Qual é o resultado de 3/4 + 1/2?', 
-                opcoes: ['4/6', '5/4', '1 1/4', '4/8'], 
-                resposta_correta: '1 1/4', 
-                explicacao: 'Para somar frações com denominadores diferentes, encontre o MMC (4). 3/4 + 2/4 = 5/4 = 1 1/4.' 
+            {
+                id: 13, disciplina: 'matematica', nivel: 'medio', texto: 'Qual é o resultado de 3/4 + 1/2?',
+                opcoes: ['4/6', '5/4', '1 1/4', '4/8'],
+                resposta_correta: '1 1/4',
+                explicacao: 'Para somar frações com denominadores diferentes, encontre o MMC (4). 3/4 + 2/4 = 5/4 = 1 1/4.'
             },
-            { id: 14, disciplina: 'matematica', nivel: 'medio', texto: 'Se um produto custa R$ 80,00 e tem 25% de desconto, qual será seu preço final?', 
-                opcoes: ['R$ 55,00', 'R$ 60,00', 'R$ 65,00', 'R$ 70,00'], 
-                resposta_correta: 'R$ 60,00', 
-                explicacao: '25% de R$ 80,00 = R$ 20,00. Preço com desconto: R$ 80,00 - R$ 20,00 = R$ 60,00.' 
+            {
+                id: 14, disciplina: 'matematica', nivel: 'medio', texto: 'Se um produto custa R$ 80,00 e tem 25% de desconto, qual será seu preço final?',
+                opcoes: ['R$ 55,00', 'R$ 60,00', 'R$ 65,00', 'R$ 70,00'],
+                resposta_correta: 'R$ 60,00',
+                explicacao: '25% de R$ 80,00 = R$ 20,00. Preço com desconto: R$ 80,00 - R$ 20,00 = R$ 60,00.'
             },
-            { id: 15, disciplina: 'matematica', nivel: 'medio', texto: 'Qual é a área de um retângulo com 8 cm de comprimento e 5 cm de largura?', 
-                opcoes: ['13 cm²', '26 cm²', '40 cm²', '45 cm²'], 
-                resposta_correta: '40 cm²', 
-                explicacao: 'Área do retângulo = comprimento × largura = 8 cm × 5 cm = 40 cm².' 
+            {
+                id: 15, disciplina: 'matematica', nivel: 'medio', texto: 'Qual é a área de um retângulo com 8 cm de comprimento e 5 cm de largura?',
+                opcoes: ['13 cm²', '26 cm²', '40 cm²', '45 cm²'],
+                resposta_correta: '40 cm²',
+                explicacao: 'Área do retângulo = comprimento × largura = 8 cm × 5 cm = 40 cm².'
             },
-            
+
             // MATEMÁTICA - DIFÍCIL
-            { id: 16, disciplina: 'matematica', nivel: 'dificil', texto: 'Resolva a equação: 2(x - 3) + 4 = 3(x + 1) - 5', 
-                opcoes: ['x = 4', 'x = 6', 'x = 8', 'x = 10'], 
-                resposta_correta: 'x = 6', 
-                explicacao: '2x - 6 + 4 = 3x + 3 - 5 → 2x - 2 = 3x - 2 → 2x - 3x = -2 + 2 → -x = 0 → x = 0. Houve um erro na questão, a resposta correta seria x = 0.' 
+            {
+                id: 16, disciplina: 'matematica', nivel: 'dificil', texto: 'Resolva a equação: 2(x - 3) + 4 = 3(x + 1) - 5',
+                opcoes: ['x = 4', 'x = 6', 'x = 8', 'x = 10'],
+                resposta_correta: 'x = 6',
+                explicacao: '2x - 6 + 4 = 3x + 3 - 5 → 2x - 2 = 3x - 2 → 2x - 3x = -2 + 2 → -x = 0 → x = 0. Houve um erro na questão, a resposta correta seria x = 0.'
             },
-            { id: 17, disciplina: 'matematica', nivel: 'dificil', texto: 'Qual é o volume de um cubo cuja aresta mede 6 cm?', 
-                opcoes: ['36 cm³', '216 cm³', '72 cm³', '18 cm³'], 
-                resposta_correta: '216 cm³', 
-                explicacao: 'Volume do cubo = aresta³ = 6 cm × 6 cm × 6 cm = 216 cm³.' 
+            {
+                id: 17, disciplina: 'matematica', nivel: 'dificil', texto: 'Qual é o volume de um cubo cuja aresta mede 6 cm?',
+                opcoes: ['36 cm³', '216 cm³', '72 cm³', '18 cm³'],
+                resposta_correta: '216 cm³',
+                explicacao: 'Volume do cubo = aresta³ = 6 cm × 6 cm × 6 cm = 216 cm³.'
             },
-            { id: 18, disciplina: 'matematica', nivel: 'dificil', texto: 'Qual é o MMC (Mínimo Múltiplo Comum) de 12 e 18?', 
-                opcoes: ['24', '36', '48', '72'], 
-                resposta_correta: '36', 
-                explicacao: 'MMC de 12 e 18: 12 = 2² × 3, 18 = 2 × 3². MMC = 2² × 3² = 4 × 9 = 36.' 
+            {
+                id: 18, disciplina: 'matematica', nivel: 'dificil', texto: 'Qual é o MMC (Mínimo Múltiplo Comum) de 12 e 18?',
+                opcoes: ['24', '36', '48', '72'],
+                resposta_correta: '36',
+                explicacao: 'MMC de 12 e 18: 12 = 2² × 3, 18 = 2 × 3². MMC = 2² × 3² = 4 × 9 = 36.'
             },
-            
+
             // CIÊNCIAS - FÁCIL
-            { id: 19, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual é o principal gás envolvido no processo de fotossíntese das plantas?', 
-                opcoes: ['Oxigênio', 'Nitrogênio', 'Dióxido de carbono', 'Hidrogênio'], 
-                resposta_correta: 'Dióxido de carbono', 
-                explicacao: 'As plantas utilizam dióxido de carbono (CO₂) na fotossíntese para produzir glicose, liberando oxigênio como subproduto.' 
+            {
+                id: 19, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual é o principal gás envolvido no processo de fotossíntese das plantas?',
+                opcoes: ['Oxigênio', 'Nitrogênio', 'Dióxido de carbono', 'Hidrogênio'],
+                resposta_correta: 'Dióxido de carbono',
+                explicacao: 'As plantas utilizam dióxido de carbono (CO₂) na fotossíntese para produzir glicose, liberando oxigênio como subproduto.'
             },
-            { id: 20, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual é o maior planeta do Sistema Solar?', 
-                opcoes: ['Terra', 'Saturno', 'Júpiter', 'Netuno'], 
-                resposta_correta: 'Júpiter', 
-                explicacao: 'Júpiter é o maior planeta do Sistema Solar, com diâmetro aproximadamente 11 vezes maior que o da Terra.' 
+            {
+                id: 20, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual é o maior planeta do Sistema Solar?',
+                opcoes: ['Terra', 'Saturno', 'Júpiter', 'Netuno'],
+                resposta_correta: 'Júpiter',
+                explicacao: 'Júpiter é o maior planeta do Sistema Solar, com diâmetro aproximadamente 11 vezes maior que o da Terra.'
             },
-            { id: 21, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual órgão do corpo humano é responsável por bombear o sangue?', 
-                opcoes: ['Pulmão', 'Coração', 'Fígado', 'Cérebro'], 
-                resposta_correta: 'Coração', 
-                explicacao: 'O coração é o órgão responsável por bombear o sangue para todo o corpo através do sistema circulatório.' 
+            {
+                id: 21, disciplina: 'ciencias', nivel: 'facil', texto: 'Qual órgão do corpo humano é responsável por bombear o sangue?',
+                opcoes: ['Pulmão', 'Coração', 'Fígado', 'Cérebro'],
+                resposta_correta: 'Coração',
+                explicacao: 'O coração é o órgão responsável por bombear o sangue para todo o corpo através do sistema circulatório.'
             },
-            
+
             // CIÊNCIAS - MÉDIO
-            { id: 22, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual processo é responsável pela movimentação das placas tectônicas?', 
-                opcoes: ['Erosão', 'Vulcanismo', 'Deriva continental', 'Correntes de convecção'], 
-                resposta_correta: 'Correntes de convecção', 
-                explicacao: 'As correntes de convecção no manto terrestre são a força motriz que move as placas tectônicas.' 
+            {
+                id: 22, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual processo é responsável pela movimentação das placas tectônicas?',
+                opcoes: ['Erosão', 'Vulcanismo', 'Deriva continental', 'Correntes de convecção'],
+                resposta_correta: 'Correntes de convecção',
+                explicacao: 'As correntes de convecção no manto terrestre são a força motriz que move as placas tectônicas.'
             },
-            { id: 23, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual é a função principal dos glóbulos vermelhos no sangue?', 
-                opcoes: ['Combater infecções', 'Transportar oxigênio', 'Coagular o sangue', 'Produzir anticorpos'], 
-                resposta_correta: 'Transportar oxigênio', 
-                explicacao: 'Os glóbulos vermelhos (hemácias) contêm hemoglobina, proteína responsável pelo transporte de oxigênio dos pulmões para os tecidos.' 
+            {
+                id: 23, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual é a função principal dos glóbulos vermelhos no sangue?',
+                opcoes: ['Combater infecções', 'Transportar oxigênio', 'Coagular o sangue', 'Produzir anticorpos'],
+                resposta_correta: 'Transportar oxigênio',
+                explicacao: 'Os glóbulos vermelhos (hemácias) contêm hemoglobina, proteína responsável pelo transporte de oxigênio dos pulmões para os tecidos.'
             },
-            { id: 24, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual fenômeno é responsável pela formação do arco-íris?', 
-                opcoes: ['Reflexão', 'Refração', 'Dispersão da luz', 'Absorção da luz'], 
-                resposta_correta: 'Dispersão da luz', 
-                explicacao: 'O arco-íris se forma pela dispersão da luz solar nas gotículas de água na atmosfera, que separam a luz branca em suas diferentes cores.' 
+            {
+                id: 24, disciplina: 'ciencias', nivel: 'medio', texto: 'Qual fenômeno é responsável pela formação do arco-íris?',
+                opcoes: ['Reflexão', 'Refração', 'Dispersão da luz', 'Absorção da luz'],
+                resposta_correta: 'Dispersão da luz',
+                explicacao: 'O arco-íris se forma pela dispersão da luz solar nas gotículas de água na atmosfera, que separam a luz branca em suas diferentes cores.'
             },
-            
+
             // CIÊNCIAS - DIFÍCIL
-            { id: 25, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual elemento químico é o mais abundante no universo?', 
-                opcoes: ['Oxigênio', 'Carbono', 'Hélio', 'Hidrogênio'], 
-                resposta_correta: 'Hidrogênio', 
-                explicacao: 'O hidrogênio é o elemento mais abundante no universo, constituindo aproximadamente 75% de toda a matéria visível.' 
+            {
+                id: 25, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual elemento químico é o mais abundante no universo?',
+                opcoes: ['Oxigênio', 'Carbono', 'Hélio', 'Hidrogênio'],
+                resposta_correta: 'Hidrogênio',
+                explicacao: 'O hidrogênio é o elemento mais abundante no universo, constituindo aproximadamente 75% de toda a matéria visível.'
             },
-            { id: 26, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual processo celular produz a maior parte da energia (ATP) nas células?', 
-                opcoes: ['Fotossíntese', 'Respiração celular', 'Fermentação', 'Digestão'], 
-                resposta_correta: 'Respiração celular', 
-                explicacao: 'A respiração celular, que ocorre principalmente nas mitocôndrias, é o processo que produz a maior parte do ATP (energia) nas células.' 
+            {
+                id: 26, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual processo celular produz a maior parte da energia (ATP) nas células?',
+                opcoes: ['Fotossíntese', 'Respiração celular', 'Fermentação', 'Digestão'],
+                resposta_correta: 'Respiração celular',
+                explicacao: 'A respiração celular, que ocorre principalmente nas mitocôndrias, é o processo que produz a maior parte do ATP (energia) nas células.'
             },
-            { id: 27, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual lei da termodinâmica estabelece que a energia não pode ser criada nem destruída, apenas transformada?', 
-                opcoes: ['Primeira Lei', 'Segunda Lei', 'Terceira Lei', 'Lei Zero'], 
-                resposta_correta: 'Primeira Lei', 
-                explicacao: 'A Primeira Lei da Termodinâmica, também conhecida como Lei da Conservação da Energia, estabelece que a energia não pode ser criada nem destruída, apenas transformada de uma forma para outra.' 
+            {
+                id: 27, disciplina: 'ciencias', nivel: 'dificil', texto: 'Qual lei da termodinâmica estabelece que a energia não pode ser criada nem destruída, apenas transformada?',
+                opcoes: ['Primeira Lei', 'Segunda Lei', 'Terceira Lei', 'Lei Zero'],
+                resposta_correta: 'Primeira Lei',
+                explicacao: 'A Primeira Lei da Termodinâmica, também conhecida como Lei da Conservação da Energia, estabelece que a energia não pode ser criada nem destruída, apenas transformada de uma forma para outra.'
             },
-            
+
             // HISTÓRIA - FÁCIL
-            { id: 28, disciplina: 'historia', nivel: 'facil', texto: 'Em que ano o Brasil foi descoberto pelos portugueses?', 
-                opcoes: ['1492', '1500', '1520', '1450'], 
-                resposta_correta: '1500', 
-                explicacao: 'O Brasil foi descoberto pelos portugueses em 22 de abril de 1500, com a chegada da frota de Pedro Álvares Cabral.' 
+            {
+                id: 28, disciplina: 'historia', nivel: 'facil', texto: 'Em que ano o Brasil foi descoberto pelos portugueses?',
+                opcoes: ['1492', '1500', '1520', '1450'],
+                resposta_correta: '1500',
+                explicacao: 'O Brasil foi descoberto pelos portugueses em 22 de abril de 1500, com a chegada da frota de Pedro Álvares Cabral.'
             },
-            { id: 29, disciplina: 'historia', nivel: 'facil', texto: 'Quem foi o primeiro presidente do Brasil?', 
-                opcoes: ['Getúlio Vargas', 'Juscelino Kubitschek', 'Deodoro da Fonseca', 'Floriano Peixoto'], 
-                resposta_correta: 'Deodoro da Fonseca', 
-                explicacao: 'Marechal Deodoro da Fonseca foi o primeiro presidente do Brasil, após a Proclamação da República em 1889.' 
+            {
+                id: 29, disciplina: 'historia', nivel: 'facil', texto: 'Quem foi o primeiro presidente do Brasil?',
+                opcoes: ['Getúlio Vargas', 'Juscelino Kubitschek', 'Deodoro da Fonseca', 'Floriano Peixoto'],
+                resposta_correta: 'Deodoro da Fonseca',
+                explicacao: 'Marechal Deodoro da Fonseca foi o primeiro presidente do Brasil, após a Proclamação da República em 1889.'
             },
-            { id: 30, disciplina: 'historia', nivel: 'facil', texto: 'Qual foi o principal produto de exportação do Brasil durante o período colonial?', 
-                opcoes: ['Café', 'Ouro', 'Açúcar', 'Algodão'], 
-                resposta_correta: 'Açúcar', 
-                explicacao: 'O açúcar foi o principal produto de exportação do Brasil durante o período colonial, especialmente nos séculos XVI e XVII.' 
+            {
+                id: 30, disciplina: 'historia', nivel: 'facil', texto: 'Qual foi o principal produto de exportação do Brasil durante o período colonial?',
+                opcoes: ['Café', 'Ouro', 'Açúcar', 'Algodão'],
+                resposta_correta: 'Açúcar',
+                explicacao: 'O açúcar foi o principal produto de exportação do Brasil durante o período colonial, especialmente nos séculos XVI e XVII.'
             },
-            
+
             // HISTÓRIA - MÉDIO
-            { id: 31, disciplina: 'historia', nivel: 'medio', texto: 'Qual evento histórico marcou o início da Idade Moderna?', 
-                opcoes: ['Queda do Império Romano', 'Queda de Constantinopla', 'Revolução Francesa', 'Revolução Industrial'], 
-                resposta_correta: 'Queda de Constantinopla', 
-                explicacao: 'A Queda de Constantinopla em 1453 para os otomanos é tradicionalmente considerada o marco que encerra a Idade Média e inicia a Idade Moderna.' 
+            {
+                id: 31, disciplina: 'historia', nivel: 'medio', texto: 'Qual evento histórico marcou o início da Idade Moderna?',
+                opcoes: ['Queda do Império Romano', 'Queda de Constantinopla', 'Revolução Francesa', 'Revolução Industrial'],
+                resposta_correta: 'Queda de Constantinopla',
+                explicacao: 'A Queda de Constantinopla em 1453 para os otomanos é tradicionalmente considerada o marco que encerra a Idade Média e inicia a Idade Moderna.'
             },
-            { id: 32, disciplina: 'historia', nivel: 'medio', texto: 'Qual foi o principal objetivo do Tratado de Tordesilhas?', 
-                opcoes: ['Estabelecer a paz entre Portugal e Espanha', 'Dividir as terras descobertas e a descobrir', 'Regulamentar o comércio de especiarias', 'Estabelecer alianças contra a França'], 
-                resposta_correta: 'Dividir as terras descobertas e a descobrir', 
-                explicacao: 'O Tratado de Tordesilhas (1494) estabeleceu uma linha imaginária a 370 léguas a oeste de Cabo Verde, dividindo as terras descobertas e a descobrir entre Portugal e Espanha.' 
+            {
+                id: 32, disciplina: 'historia', nivel: 'medio', texto: 'Qual foi o principal objetivo do Tratado de Tordesilhas?',
+                opcoes: ['Estabelecer a paz entre Portugal e Espanha', 'Dividir as terras descobertas e a descobrir', 'Regulamentar o comércio de especiarias', 'Estabelecer alianças contra a França'],
+                resposta_correta: 'Dividir as terras descobertas e a descobrir',
+                explicacao: 'O Tratado de Tordesilhas (1494) estabeleceu uma linha imaginária a 370 léguas a oeste de Cabo Verde, dividindo as terras descobertas e a descobrir entre Portugal e Espanha.'
             },
-            { id: 33, disciplina: 'historia', nivel: 'medio', texto: 'Qual movimento cultural surgiu na Europa entre os séculos XIV e XVI, marcando a transição da Idade Média para a Idade Moderna?', 
-                opcoes: ['Iluminismo', 'Renascimento', 'Reforma Protestante', 'Revolução Científica'], 
-                resposta_correta: 'Renascimento', 
-                explicacao: 'O Renascimento foi um movimento cultural que surgiu na Itália e se espalhou pela Europa, caracterizado pelo renovado interesse pela cultura clássica greco-romana e pelo humanismo.' 
+            {
+                id: 33, disciplina: 'historia', nivel: 'medio', texto: 'Qual movimento cultural surgiu na Europa entre os séculos XIV e XVI, marcando a transição da Idade Média para a Idade Moderna?',
+                opcoes: ['Iluminismo', 'Renascimento', 'Reforma Protestante', 'Revolução Científica'],
+                resposta_correta: 'Renascimento',
+                explicacao: 'O Renascimento foi um movimento cultural que surgiu na Itália e se espalhou pela Europa, caracterizado pelo renovado interesse pela cultura clássica greco-romana e pelo humanismo.'
             },
-            
+
             // HISTÓRIA - DIFÍCIL
-            { id: 34, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal fator que levou à crise do sistema colonial no Brasil?', 
-                opcoes: ['Aumento da imigração europeia', 'Esgotamento das minas de ouro', 'Pressão inglesa pelo fim do tráfico negreiro', 'Influência das ideias iluministas e da independência dos EUA'], 
-                resposta_correta: 'Influência das ideias iluministas e da independência dos EUA', 
-                explicacao: 'As ideias iluministas, que pregavam liberdade, igualdade e soberania popular, juntamente com o exemplo da independência dos EUA, foram fatores cruciais para a crise do sistema colonial no Brasil.' 
+            {
+                id: 34, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal fator que levou à crise do sistema colonial no Brasil?',
+                opcoes: ['Aumento da imigração europeia', 'Esgotamento das minas de ouro', 'Pressão inglesa pelo fim do tráfico negreiro', 'Influência das ideias iluministas e da independência dos EUA'],
+                resposta_correta: 'Influência das ideias iluministas e da independência dos EUA',
+                explicacao: 'As ideias iluministas, que pregavam liberdade, igualdade e soberania popular, juntamente com o exemplo da independência dos EUA, foram fatores cruciais para a crise do sistema colonial no Brasil.'
             },
-            { id: 35, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal objetivo da política do "pão e circo" no Império Romano?', 
-                opcoes: ['Aumentar a produção agrícola', 'Controlar a população através de alimentação e entretenimento', 'Expandir o território imperial', 'Fortalecer o exército romano'], 
-                resposta_correta: 'Controlar a população através de alimentação e entretenimento', 
-                explicacao: 'A política do "pão e circo" consistia em fornecer alimentação (pão) e entretenimento (circo) gratuitos à população romana, como forma de manter a paz social e o controle político.' 
+            {
+                id: 35, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal objetivo da política do "pão e circo" no Império Romano?',
+                opcoes: ['Aumentar a produção agrícola', 'Controlar a população através de alimentação e entretenimento', 'Expandir o território imperial', 'Fortalecer o exército romano'],
+                resposta_correta: 'Controlar a população através de alimentação e entretenimento',
+                explicacao: 'A política do "pão e circo" consistia em fornecer alimentação (pão) e entretenimento (circo) gratuitos à população romana, como forma de manter a paz social e o controle político.'
             },
-            { id: 36, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal impacto da Revolução Industrial na sociedade europeia?', 
-                opcoes: ['Aumento da população rural', 'Diminuição da produção de bens', 'Formação da classe operária e urbanização', 'Fortalecimento do sistema feudal'], 
-                resposta_correta: 'Formação da classe operária e urbanização', 
-                explicacao: 'A Revolução Industrial levou à formação de uma nova classe social (o proletariado ou classe operária) e ao processo de urbanização, com o deslocamento de pessoas do campo para as cidades.' 
+            {
+                id: 36, disciplina: 'historia', nivel: 'dificil', texto: 'Qual foi o principal impacto da Revolução Industrial na sociedade europeia?',
+                opcoes: ['Aumento da população rural', 'Diminuição da produção de bens', 'Formação da classe operária e urbanização', 'Fortalecimento do sistema feudal'],
+                resposta_correta: 'Formação da classe operária e urbanização',
+                explicacao: 'A Revolução Industrial levou à formação de uma nova classe social (o proletariado ou classe operária) e ao processo de urbanização, com o deslocamento de pessoas do campo para as cidades.'
             },
-            
+
             // GEOGRAFIA - FÁCIL
-            { id: 37, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é o maior país do mundo em extensão territorial?', 
-                opcoes: ['China', 'Estados Unidos', 'Canadá', 'Rússia'], 
-                resposta_correta: 'Rússia', 
-                explicacao: 'A Rússia é o maior país do mundo em extensão territorial, com aproximadamente 17 milhões de km².' 
+            {
+                id: 37, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é o maior país do mundo em extensão territorial?',
+                opcoes: ['China', 'Estados Unidos', 'Canadá', 'Rússia'],
+                resposta_correta: 'Rússia',
+                explicacao: 'A Rússia é o maior país do mundo em extensão territorial, com aproximadamente 17 milhões de km².'
             },
-            { id: 38, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é o oceano que banha o litoral brasileiro?', 
-                opcoes: ['Oceano Pacífico', 'Oceano Índico', 'Oceano Atlântico', 'Oceano Ártico'], 
-                resposta_correta: 'Oceano Atlântico', 
-                explicacao: 'O litoral brasileiro é banhado pelo Oceano Atlântico, que se estende por aproximadamente 7.400 km.' 
+            {
+                id: 38, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é o oceano que banha o litoral brasileiro?',
+                opcoes: ['Oceano Pacífico', 'Oceano Índico', 'Oceano Atlântico', 'Oceano Ártico'],
+                resposta_correta: 'Oceano Atlântico',
+                explicacao: 'O litoral brasileiro é banhado pelo Oceano Atlântico, que se estende por aproximadamente 7.400 km.'
             },
-            { id: 39, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é a capital do Brasil?', 
-                opcoes: ['Rio de Janeiro', 'São Paulo', 'Belo Horizonte', 'Brasília'], 
-                resposta_correta: 'Brasília', 
-                explicacao: 'Brasília é a capital federal do Brasil desde 1960, quando substituiu o Rio de Janeiro.' 
+            {
+                id: 39, disciplina: 'geografia', nivel: 'facil', texto: 'Qual é a capital do Brasil?',
+                opcoes: ['Rio de Janeiro', 'São Paulo', 'Belo Horizonte', 'Brasília'],
+                resposta_correta: 'Brasília',
+                explicacao: 'Brasília é a capital federal do Brasil desde 1960, quando substituiu o Rio de Janeiro.'
             },
-            
+
             // GEOGRAFIA - MÉDIO
-            { id: 40, disciplina: 'geografia', nivel: 'medio', texto: 'Qual é o bioma predominante na região Centro-Oeste do Brasil?', 
-                opcoes: ['Mata Atlântica', 'Cerrado', 'Caatinga', 'Amazônia'], 
-                resposta_correta: 'Cerrado', 
-                explicacao: 'O Cerrado é o bioma predominante na região Centro-Oeste do Brasil, caracterizado por vegetação de savana e grande biodiversidade.' 
+            {
+                id: 40, disciplina: 'geografia', nivel: 'medio', texto: 'Qual é o bioma predominante na região Centro-Oeste do Brasil?',
+                opcoes: ['Mata Atlântica', 'Cerrado', 'Caatinga', 'Amazônia'],
+                resposta_correta: 'Cerrado',
+                explicacao: 'O Cerrado é o bioma predominante na região Centro-Oeste do Brasil, caracterizado por vegetação de savana e grande biodiversidade.'
             },
-            { id: 41, disciplina: 'geografia', nivel: 'medio', texto: 'Qual fenômeno climático é caracterizado por ventos fortes e chuvas intensas, formando-se sobre os oceanos tropicais?', 
-                opcoes: ['Tornado', 'Furacão', 'Tsunami', 'Terremoto'], 
-                resposta_correta: 'Furacão', 
-                explicacao: 'Furacões são fenômenos climáticos que se formam sobre os oceanos tropicais, caracterizados por ventos fortes e chuvas intensas, girando em torno de um centro de baixa pressão.' 
+            {
+                id: 41, disciplina: 'geografia', nivel: 'medio', texto: 'Qual fenômeno climático é caracterizado por ventos fortes e chuvas intensas, formando-se sobre os oceanos tropicais?',
+                opcoes: ['Tornado', 'Furacão', 'Tsunami', 'Terremoto'],
+                resposta_correta: 'Furacão',
+                explicacao: 'Furacões são fenômenos climáticos que se formam sobre os oceanos tropicais, caracterizados por ventos fortes e chuvas intensas, girando em torno de um centro de baixa pressão.'
             },
-            { id: 42, disciplina: 'geografia', nivel: 'medio', texto: 'Qual é o principal fator responsável pelas estações do ano?', 
-                opcoes: ['A distância da Terra em relação ao Sol', 'A inclinação do eixo terrestre', 'A rotação da Terra', 'A translação da Lua'], 
-                resposta_correta: 'A inclinação do eixo terrestre', 
-                explicacao: 'As estações do ano são causadas principalmente pela inclinação do eixo terrestre (aproximadamente 23,5°), que faz com que diferentes partes da Terra recebam quantidades variáveis de luz solar ao longo do ano.' 
+            {
+                id: 42, disciplina: 'geografia', nivel: 'medio', texto: 'Qual é o principal fator responsável pelas estações do ano?',
+                opcoes: ['A distância da Terra em relação ao Sol', 'A inclinação do eixo terrestre', 'A rotação da Terra', 'A translação da Lua'],
+                resposta_correta: 'A inclinação do eixo terrestre',
+                explicacao: 'As estações do ano são causadas principalmente pela inclinação do eixo terrestre (aproximadamente 23,5°), que faz com que diferentes partes da Terra recebam quantidades variáveis de luz solar ao longo do ano.'
             },
-            
+
             // GEOGRAFIA - DIFÍCIL
-            { id: 43, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual conceito geográfico se refere ao processo de expansão das cidades sobre áreas rurais?', 
-                opcoes: ['Êxodo rural', 'Conurbação', 'Metropolização', 'Expansão urbana'], 
-                resposta_correta: 'Expansão urbana', 
-                explicacao: 'Expansão urbana é o processo de crescimento das cidades sobre áreas rurais ou naturais, geralmente caracterizado por baixa densidade populacional e dependência do transporte automotivo.' 
+            {
+                id: 43, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual conceito geográfico se refere ao processo de expansão das cidades sobre áreas rurais?',
+                opcoes: ['Êxodo rural', 'Conurbação', 'Metropolização', 'Expansão urbana'],
+                resposta_correta: 'Expansão urbana',
+                explicacao: 'Expansão urbana é o processo de crescimento das cidades sobre áreas rurais ou naturais, geralmente caracterizado por baixa densidade populacional e dependência do transporte automotivo.'
             },
-            { id: 44, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual é a principal consequência do efeito estufa intensificado?', 
-                opcoes: ['Resfriamento global', 'Aumento do nível dos oceanos', 'Diminuição da poluição', 'Aumento da biodiversidade'], 
-                resposta_correta: 'Aumento do nível dos oceanos', 
-                explicacao: 'O efeito estufa intensificado pelas atividades humanas causa o aquecimento global, que por sua vez leva ao derretimento das calotas polares e ao aumento do nível dos oceanos.' 
+            {
+                id: 44, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual é a principal consequência do efeito estufa intensificado?',
+                opcoes: ['Resfriamento global', 'Aumento do nível dos oceanos', 'Diminuição da poluição', 'Aumento da biodiversidade'],
+                resposta_correta: 'Aumento do nível dos oceanos',
+                explicacao: 'O efeito estufa intensificado pelas atividades humanas causa o aquecimento global, que por sua vez leva ao derretimento das calotas polares e ao aumento do nível dos oceanos.'
             },
-            { id: 45, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual teoria demográfica defende que o crescimento populacional tende a superar a produção de alimentos?', 
-                opcoes: ['Teoria Neomalthusiana', 'Teoria Reformista', 'Teoria Malthusiana', 'Teoria Ecomalthusiana'], 
-                resposta_correta: 'Teoria Malthusiana', 
-                explicacao: 'A Teoria Malthusiana, formulada por Thomas Malthus no século XVIII, defende que a população cresce em progressão geométrica, enquanto a produção de alimentos cresce em progressão aritmética, levando inevitavelmente à escassez.' 
+            {
+                id: 45, disciplina: 'geografia', nivel: 'dificil', texto: 'Qual teoria demográfica defende que o crescimento populacional tende a superar a produção de alimentos?',
+                opcoes: ['Teoria Neomalthusiana', 'Teoria Reformista', 'Teoria Malthusiana', 'Teoria Ecomalthusiana'],
+                resposta_correta: 'Teoria Malthusiana',
+                explicacao: 'A Teoria Malthusiana, formulada por Thomas Malthus no século XVIII, defende que a população cresce em progressão geométrica, enquanto a produção de alimentos cresce em progressão aritmética, levando inevitavelmente à escassez.'
             }
         ];
 
@@ -835,12 +1625,12 @@
         // =======================================================
         // 2. CONTROLE DE PÁGINAS E NAVEGAÇÃO
         // =======================================================
-        document.getElementById('btn-comecar').addEventListener('click', function() {
+        document.getElementById('btn-comecar').addEventListener('click', function () {
             document.getElementById('splash-screen').style.display = 'none';
             document.getElementById('main-header').style.display = 'block';
             document.getElementById('home-page').classList.add('active');
             document.getElementById('splash-screen').classList.remove('active');
-            
+
             document.getElementById('nav-home').classList.add('active');
             document.getElementById('nav-avaliacao').classList.remove('active');
         });
@@ -849,7 +1639,7 @@
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.querySelectorAll('.materia-detalhe').forEach(detail => detail.style.display = 'none');
             document.getElementById('materias-list').style.display = 'block';
-            
+
             document.getElementById(pageId).classList.add('active');
 
             document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
@@ -869,10 +1659,10 @@
 
         // Event listener para mostrar o detalhe das matérias
         document.querySelectorAll('.card-materia').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const targetId = this.getAttribute('data-target');
                 document.getElementById('materias-list').style.display = 'none';
-                
+
                 // Oculta todos os detalhes primeiro, e depois mostra o alvo
                 document.querySelectorAll('.materia-detalhe').forEach(detail => detail.style.display = 'none');
                 document.getElementById(targetId).style.display = 'block';
@@ -911,11 +1701,11 @@
             return array;
         }
 
-        document.getElementById('btn-iniciar-quiz').addEventListener('click', function() {
+        document.getElementById('btn-iniciar-quiz').addEventListener('click', function () {
             // LÊ MÚLTIPLAS DISCIPLINAS SELECIONADAS (COM O ATRIBUTO 'multiple' do HTML)
             const selectedDisciplines = Array.from(document.getElementById('select-disciplina').selectedOptions).map(option => option.value);
             const selectedNivel = document.getElementById('select-nivel').value;
-            
+
             if (selectedDisciplines.length === 0) {
                 alert('Por favor, selecione pelo menos uma disciplina.');
                 return;
@@ -923,16 +1713,16 @@
 
             // 1. Filtrar o banco de dados pelas seleções do usuário
             // Filtra se a disciplina da questão está no array de selectedDisciplines E o nível corresponde.
-            let availableQuestions = questionsDB.filter(q => 
+            let availableQuestions = questionsDB.filter(q =>
                 selectedDisciplines.includes(q.disciplina) && q.nivel === selectedNivel
             );
-            
+
             // 2. Garantir que temos 15 questões (com repetição se necessário)
             if (availableQuestions.length === 0) {
                 alert('Não há questões disponíveis para a seleção de disciplina e nível. Por favor, tente outra combinação.');
                 return;
             }
-            
+
             // Embaralhar as questões disponíveis
             availableQuestions = shuffleArray(availableQuestions);
 
@@ -942,22 +1732,22 @@
                 // Usamos o índice modular para garantir que teremos 15 perguntas, mesmo se o filtro retornar menos de 15.
                 currentQuizQuestions.push(availableQuestions[i % availableQuestions.length]);
             }
-            
+
             // Resetar respostas para o novo quiz
-            userAnswers = {}; 
+            userAnswers = {};
 
             document.getElementById('quiz-config').style.display = 'none';
             document.getElementById('quiz-results').style.display = 'none';
             document.getElementById('quiz-content').style.display = 'block';
             document.getElementById('btn-finalizar-quiz').style.display = 'block';
-            
+
             renderQuizQuestions();
         });
 
         // FUNÇÃO CRÍTICA: SALVA A RESPOSTA NO OBJETO userAnswers
         function saveAnswer(questionId, answer) {
             // PONTO CHAVE: Usa o ID único da questão (do banco de dados) como chave para guardar a resposta
-            userAnswers[questionId] = answer; 
+            userAnswers[questionId] = answer;
         }
 
 
@@ -965,18 +1755,18 @@
         function renderQuizQuestions() {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
-            
+
             currentQuizQuestions.forEach((q, index) => {
                 const questionHtml = document.createElement('div');
                 questionHtml.className = 'question-card';
-                
+
                 const emojiMap = {
                     'portugues': '🗣️', 'matematica': '🧮', 'ciencias': '🔬', 'historia': '📜', 'geografia': '🌎'
                 };
                 const discEmoji = emojiMap[q.disciplina] || '❓';
-                
+
                 // Mapeia e embaralha as opções para esta questão
-                const shuffledOptions = shuffleArray([...q.opcoes]); 
+                const shuffledOptions = shuffleArray([...q.opcoes]);
 
                 // **LEITURA DO ESTADO SALVO:** Pega a resposta previamente salva no objeto userAnswers
                 const checkedValue = userAnswers[q.id];
@@ -985,7 +1775,7 @@
                 const optionsHtml = shuffledOptions.map((option, optIndex) => {
                     // ID ÚNICO E VÁLIDO para o input e o label (chave para a seleção funcionar)
                     const uniqueId = `q${index}-opt${optIndex}`;
-                    
+
                     // **APLICAÇÃO DA PERSISTÊNCIA:** Marca o radio button como 'checked'
                     // se o valor da opção for igual à resposta guardada (checkedValue)
                     return `
@@ -1010,13 +1800,13 @@
                 `;
                 container.appendChild(questionHtml);
             });
-            
+
             // Atualiza o contador de questões
             document.getElementById('current-question-number').textContent = currentQuizQuestions.length;
         }
 
         // Finalizar e Calcular o Quiz
-        document.getElementById('btn-finalizar-quiz').addEventListener('click', function() {
+        document.getElementById('btn-finalizar-quiz').addEventListener('click', function () {
             let totalAcertos = 0;
             const disciplinaAcertos = {};
 
@@ -1030,13 +1820,13 @@
 
             const feedbackHtml = document.getElementById('feedback-revisao');
             feedbackHtml.innerHTML = '';
-            
+
             // Processa as respostas
             currentQuizQuestions.forEach((q, index) => {
                 // Pega a resposta guardada pela função saveAnswer
-                const userAnswer = userAnswers[q.id]; 
+                const userAnswer = userAnswers[q.id];
                 const isCorrect = userAnswer === q.resposta_correta;
-                
+
                 if (isCorrect) {
                     totalAcertos++;
                     disciplinaAcertos[q.disciplina].acertos++;
@@ -1056,7 +1846,7 @@
             // Exibir o Relatório
             document.getElementById('total-acertos').textContent = totalAcertos;
             document.getElementById('total-erros').textContent = QUESTION_COUNT - totalAcertos;
-            
+
             const desempenhoDisciplinasHtml = document.getElementById('desempenho-disciplinas');
             desempenhoDisciplinasHtml.innerHTML = '';
 
@@ -1082,4 +1872,5 @@
 
     </script>
 </body>
+
 </html>
